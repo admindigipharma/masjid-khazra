@@ -1,4 +1,4 @@
-import { Heart, Shield, Repeat, Gift } from 'lucide-react'
+import { Heart, Shield, Repeat, Gift, Building2 } from 'lucide-react'
 
 const MYDONA_URL = 'https://donate.mydona.com/masjid-e-khazra'
 
@@ -35,11 +35,11 @@ const donationTiers = [
   },
 ]
 
-const fundTypes = [
-  { name: 'General Fund', description: 'Used where most needed' },
-  { name: 'Zakat', description: 'Obligatory alms for eligible recipients' },
-  { name: 'Sadaqah', description: 'Voluntary charity for any good cause' },
-  { name: 'Mosque Maintenance', description: 'Keep the mosque running' },
+const bankAccounts = [
+  { name: 'Masjid (General)', account: '00108404', description: 'General mosque operations and maintenance' },
+  { name: 'Fitrana / Sadaqa / Zakat', account: '10034069', description: 'Obligatory and voluntary charity' },
+  { name: 'Community Funeral Fund', account: '10040063', description: 'For those who cannot afford funeral costs' },
+  { name: 'Mosque Funeral Account', account: '10033963', description: 'Running the funeral service' },
 ]
 
 export default function Donate() {
@@ -87,20 +87,40 @@ export default function Donate() {
         </div>
       </section>
 
-      {/* Fund Types */}
-      <section className="bg-white py-12 sm:py-16" aria-labelledby="funds-heading">
+      {/* Bank Transfer */}
+      <section className="bg-white py-12 sm:py-16" aria-labelledby="bank-heading">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 id="funds-heading" className="text-2xl font-semibold text-text sm:text-3xl">
-            Where Your Money Goes
-          </h2>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {fundTypes.map((fund) => (
-              <div key={fund.name} className="rounded-lg border border-gray-200 p-5">
-                <h3 className="font-semibold text-text">{fund.name}</h3>
-                <p className="mt-1 text-sm text-text-light">{fund.description}</p>
+          <div className="flex items-center gap-3 mb-2">
+            <Building2 size={24} className="text-primary" aria-hidden="true" />
+            <h2 id="bank-heading" className="text-2xl font-semibold text-text sm:text-3xl">
+              Donate by Bank Transfer
+            </h2>
+          </div>
+          <p className="mt-2 text-text-light">
+            For larger donations, you can transfer directly to the relevant account below.
+          </p>
+
+          <div className="mt-6 rounded-xl border border-gray-200 bg-bg p-5">
+            <p className="text-sm font-medium text-text">Beneficiary: <span className="font-semibold">Anjum Ehl Sunnat Wal Jamaat Masjid e Khazra</span></p>
+            <p className="mt-1 text-sm text-text-light">Bank of Scotland, Victoria Road, Glasgow</p>
+            <p className="mt-1 text-sm text-text-light">Sort Code: <span className="font-semibold text-text">80-15-59</span></p>
+          </div>
+
+          <div className="mt-4 grid gap-4 sm:grid-cols-2">
+            {bankAccounts.map((acc) => (
+              <div key={acc.account} className="rounded-lg border border-gray-200 bg-white p-5">
+                <h3 className="font-semibold text-text">{acc.name}</h3>
+                <p className="mt-1 text-sm text-text-light">{acc.description}</p>
+                <p className="mt-2 text-sm">
+                  Account: <span className="font-semibold text-primary">{acc.account}</span>
+                </p>
               </div>
             ))}
           </div>
+
+          <p className="mt-4 text-xs text-text-light">
+            Cheques payable to "Masjid-e-Khazra" can be posted to 138-140 Butterbiggins Road, Glasgow G42 7AF.
+          </p>
         </div>
       </section>
 
