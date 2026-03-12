@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Phone, Mail, Clock, Heart, Users, Truck, MapPin, FileText, AlertCircle } from 'lucide-react'
+import { Phone, Clock, Heart, Users, Truck, MapPin, FileText, AlertCircle } from 'lucide-react'
 
 const cemeteries = [
   {

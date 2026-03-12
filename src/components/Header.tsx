@@ -13,12 +13,6 @@ const serviceLinks = [
   { to: '/services', label: 'All Services' },
 ]
 
-const mainNav = [
-  { to: '/', label: 'Home' },
-  { to: '/prayer-times', label: 'Prayer Times' },
-  { to: '/charity', label: 'News' },
-  { to: '/contact', label: 'Contact' },
-]
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false)

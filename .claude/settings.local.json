@@ -8,7 +8,17 @@
       "Bash(git add:*)",
       "Bash(npm create:*)",
       "Bash(cp -r /Users/jfmbp/masjidkhazra-temp/* /Users/jfmbp/Masjidkhazra/ && cp /Users/jfmbp/masjidkhazra-temp/.gitignore /Users/jfmbp/Masjidkhazra/ 2>/dev/null; rm -rf /Users/jfmbp/masjidkhazra-temp)",
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "Bash(npm run:*)",
+      "Bash(gh repo:*)",
+      "Bash(git push:*)",
+      "Bash(python3 /Users/jfmbp/.claude/skills/ui-ux-pro-max/scripts/search.py \"mosque community religious nonprofit charity\" --domain product 2>&1)",
+      "Bash(python3 /Users/jfmbp/.claude/skills/ui-ux-pro-max/scripts/search.py \"elegant warm trust spiritual\" --domain style 2>&1)",
+      "Bash(python3 /Users/jfmbp/.claude/skills/ui-ux-pro-max/scripts/search.py \"elegant warm community\" --domain typography 2>&1)",
+      "Bash(python3 /Users/jfmbp/.claude/skills/ui-ux-pro-max/scripts/search.py \"nonprofit charity community service\" --domain color 2>&1)",
+      "Bash(python3 /Users/jfmbp/.claude/skills/ui-ux-pro-max/scripts/search.py \"hero-centric social-proof storytelling\" --domain landing 2>&1)",
+      "Bash(python3 /Users/jfmbp/.claude/skills/ui-ux-pro-max/scripts/search.py \"animation hover cursor\" --domain ux 2>&1)",
+      "mcp__magic__21st_magic_component_inspiration"
     ]
   }
 }
