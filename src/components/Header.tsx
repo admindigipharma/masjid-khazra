@@ -15,10 +15,10 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 bg-white shadow-sm">
+    <header className="sticky top-0 z-50 border-b border-gray-100 bg-white/80 backdrop-blur-lg">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-        <Link to="/" className="flex items-center gap-3" aria-label="Masjid-e-Khazra home">
-          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white font-bold text-lg" aria-hidden="true">
+        <Link to="/" className="flex items-center gap-3 cursor-pointer" aria-label="Masjid-e-Khazra home">
+          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white font-bold text-lg shadow-sm" aria-hidden="true">
             M
           </div>
           <div>
@@ -33,7 +33,7 @@ export default function Header() {
               key={link.to}
               to={link.to}
               className={({ isActive }) =>
-                `rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+                `cursor-pointer rounded-lg px-3 py-2 text-sm font-medium transition-colors duration-150 ${
                   isActive
                     ? 'bg-primary/10 text-primary'
                     : 'text-text hover:bg-primary/5 hover:text-primary'
@@ -45,14 +45,14 @@ export default function Header() {
           ))}
           <Link
             to="/donate"
-            className="pulse-cta ml-2 rounded-lg bg-cta px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-cta-hover focus:outline-2 focus:outline-offset-2 focus:outline-cta"
+            className="pulse-cta ml-2 cursor-pointer rounded-lg bg-cta px-5 py-2 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-cta-hover hover:shadow-md focus:outline-2 focus:outline-offset-2 focus:outline-cta"
           >
             Donate
           </Link>
         </nav>
 
         <button
-          className="rounded-lg p-2 text-text hover:bg-primary/5 md:hidden focus:outline-2 focus:outline-offset-2 focus:outline-primary"
+          className="cursor-pointer rounded-lg p-2 text-text transition-colors hover:bg-primary/5 md:hidden focus:outline-2 focus:outline-offset-2 focus:outline-primary"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-expanded={mobileOpen}
           aria-controls="mobile-nav"
@@ -65,7 +65,7 @@ export default function Header() {
       {mobileOpen && (
         <nav
           id="mobile-nav"
-          className="border-t border-gray-100 bg-white px-4 pb-4 md:hidden"
+          className="border-t border-gray-100 bg-white/95 backdrop-blur-lg px-4 pb-4 md:hidden"
           aria-label="Mobile navigation"
         >
           {navLinks.map((link) => (
@@ -74,7 +74,7 @@ export default function Header() {
               to={link.to}
               onClick={() => setMobileOpen(false)}
               className={({ isActive }) =>
-                `block rounded-lg px-4 py-3 text-sm font-medium transition-colors ${
+                `block cursor-pointer rounded-lg px-4 py-3 text-sm font-medium transition-colors ${
                   isActive
                     ? 'bg-primary/10 text-primary'
                     : 'text-text hover:bg-primary/5'
@@ -87,7 +87,7 @@ export default function Header() {
           <Link
             to="/donate"
             onClick={() => setMobileOpen(false)}
-            className="mt-2 block rounded-lg bg-cta px-4 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-cta-hover"
+            className="mt-2 block cursor-pointer rounded-lg bg-cta px-4 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-cta-hover"
           >
             Donate
           </Link>
