@@ -73,12 +73,12 @@ export default function Donate() {
                 href={MYDONA_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group rounded-xl border-2 border-gray-200 bg-white p-6 transition-all hover:border-cta hover:shadow-md focus:outline-2 focus:outline-offset-2 focus:outline-cta"
+                className="group cursor-pointer rounded-xl border-2 border-gray-200 bg-white p-6 shadow-sm transition-all duration-200 hover:border-cta hover:shadow-lg hover:-translate-y-1 focus:outline-2 focus:outline-offset-2 focus:outline-cta"
               >
-                <span className="text-2xl font-bold text-cta">{tier.amount}</span>
-                <h3 className="mt-2 font-semibold text-text group-hover:text-cta">{tier.label}</h3>
-                <p className="mt-2 text-sm text-text-light">{tier.description}</p>
-                <span className="mt-4 inline-block text-sm font-semibold text-cta">
+                <span className="text-3xl font-bold text-cta">{tier.amount}</span>
+                <h3 className="mt-2 font-semibold text-text transition-colors group-hover:text-cta">{tier.label}</h3>
+                <p className="mt-2 text-sm text-text-light leading-relaxed">{tier.description}</p>
+                <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-cta transition-transform group-hover:translate-x-1">
                   Donate {tier.amount !== 'Custom' ? tier.amount : ''} &rarr;
                 </span>
               </a>
