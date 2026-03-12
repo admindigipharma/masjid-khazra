@@ -1,14 +1,105 @@
-import { useState, type FormEvent } from 'react'
-import { Phone, Mail, MapPin, Clock } from 'lucide-react'
+import { useState, useRef, type FormEvent } from 'react'
+import { Phone, Mail, MapPin, Clock, AlertCircle } from 'lucide-react'
+import { sanitize, isValidEmail, isValidPhone, checkRateLimit } from '../lib/form-security'
+
+interface FormErrors {
+  name?: string
+  email?: string
+  phone?: string
+  subject?: string
+  message?: string
+  form?: string
+}
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false)
+  const [errors, setErrors] = useState<FormErrors>({})
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const formRef = useRef<HTMLFormElement>(null)
+  const errorRef = useRef<HTMLDivElement>(null)
+
+  function validateForm(data: FormData): FormErrors {
+    const errs: FormErrors = {}
+
+    // Honeypot — if filled, it's a bot
+    const honeypot = data.get('website') as string
+    if (honeypot) {
+      errs.form = 'Submission blocked.'
+      return errs
+    }
+
+    // Rate limit
+    if (!checkRateLimit('contact-form')) {
+      errs.form = 'Too many submissions. Please try again in a few minutes.'
+      return errs
+    }
+
+    const name = (data.get('name') as string || '').trim()
+    const email = (data.get('email') as string || '').trim()
+    const phone = (data.get('phone') as string || '').trim()
+    const subject = data.get('subject') as string || ''
+    const message = (data.get('message') as string || '').trim()
+
+    if (!name || name.length < 2) {
+      errs.name = 'Please enter your full name.'
+    } else if (sanitize(name, 100) === '[blocked]') {
+      errs.name = 'Name contains invalid characters.'
+    }
+
+    if (!email) {
+      errs.email = 'Please enter your email address.'
+    } else if (!isValidEmail(email)) {
+      errs.email = 'Please enter a valid email address.'
+    }
+
+    if (phone && !isValidPhone(phone)) {
+      errs.phone = 'Please enter a valid UK or Ireland phone number.'
+    }
+
+    if (!subject) {
+      errs.subject = 'Please select a subject.'
+    }
+
+    if (!message || message.length < 10) {
+      errs.message = 'Please enter a message (at least 10 characters).'
+    } else if (sanitize(message, 2000) === '[blocked]') {
+      errs.message = 'Message contains blocked content. Please remove any links or code.'
+    }
+
+    return errs
+  }
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    // Placeholder — will wire up form submission later
-    setSubmitted(true)
+    const data = new FormData(e.currentTarget)
+    const validationErrors = validateForm(data)
+
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors)
+      errorRef.current?.focus()
+      return
+    }
+
+    setErrors({})
+    setIsSubmitting(true)
+
+    // Sanitise all inputs before submission
+    const _sanitisedData = {
+      name: sanitize(data.get('name') as string, 100),
+      email: (data.get('email') as string).trim(),
+      phone: (data.get('phone') as string || '').trim(),
+      subject: data.get('subject') as string,
+      message: sanitize(data.get('message') as string, 2000),
+    }
+
+    // Placeholder — will wire up to email service (e.g. Formspree, Resend)
+    setTimeout(() => {
+      setIsSubmitting(false)
+      setSubmitted(true)
+    }, 600)
   }
+
+  const hasErrors = Object.keys(errors).length > 0
 
   return (
     <>
@@ -41,7 +132,7 @@ export default function Contact() {
                   </div>
                 </li>
                 <li>
-                  <a href="tel:01414221154" className="flex items-start gap-3 group">
+                  <a href="tel:01414221154" className="flex items-start gap-3 cursor-pointer group">
                     <Phone size={20} className="mt-0.5 shrink-0 text-primary" aria-hidden="true" />
                     <div>
                       <span className="block text-sm font-medium text-text">Phone</span>
@@ -52,7 +143,7 @@ export default function Contact() {
                   </a>
                 </li>
                 <li>
-                  <a href="tel:07871206102" className="flex items-start gap-3 group">
+                  <a href="tel:07871206102" className="flex items-start gap-3 cursor-pointer group">
                     <Phone size={20} className="mt-0.5 shrink-0 text-primary" aria-hidden="true" />
                     <div>
                       <span className="block text-sm font-medium text-text">Mobile</span>
@@ -63,7 +154,7 @@ export default function Contact() {
                   </a>
                 </li>
                 <li>
-                  <a href="mailto:masjidekhazra@gmail.com" className="flex items-start gap-3 group">
+                  <a href="mailto:masjidekhazra@gmail.com" className="flex items-start gap-3 cursor-pointer group">
                     <Mail size={20} className="mt-0.5 shrink-0 text-primary" aria-hidden="true" />
                     <div>
                       <span className="block text-sm font-medium text-text">Email</span>
@@ -88,10 +179,10 @@ export default function Contact() {
                 <div>
                   <h4 className="text-sm font-semibold text-text">Funeral Enquiries</h4>
                   <p className="mt-1 text-sm text-text-light">
-                    Tahir Bashir: <a href="tel:07980900882" className="text-primary font-medium hover:underline">07980 900 882</a><br />
-                    Amir Mushtaq: <a href="tel:07508766843" className="text-primary font-medium hover:underline">07508 766 843</a><br />
-                    Office: <a href="tel:01414221154" className="text-primary font-medium hover:underline">0141 422 1154 (Option 2)</a><br />
-                    Email: <a href="mailto:fsmek@outlook.com" className="text-primary font-medium hover:underline">fsmek@outlook.com</a>
+                    Tahir Bashir: <a href="tel:07980900882" className="cursor-pointer text-primary font-medium hover:underline">07980 900 882</a><br />
+                    Amir Mushtaq: <a href="tel:07508766843" className="cursor-pointer text-primary font-medium hover:underline">07508 766 843</a><br />
+                    Office: <a href="tel:01414221154" className="cursor-pointer text-primary font-medium hover:underline">0141 422 1154 (Option 2)</a><br />
+                    Email: <a href="mailto:fsmek@outlook.com" className="cursor-pointer text-primary font-medium hover:underline">fsmek@outlook.com</a>
                   </p>
                 </div>
               </div>
@@ -100,7 +191,7 @@ export default function Contact() {
             {/* Contact Form */}
             <div className="rounded-xl border border-gray-200 bg-white p-6 sm:p-8">
               {submitted ? (
-                <div className="flex flex-col items-center justify-center py-12 text-center" role="alert">
+                <div className="flex flex-col items-center justify-center py-12 text-center" role="status" aria-live="polite">
                   <div className="flex h-16 w-16 items-center justify-center rounded-full bg-cta/10 text-cta" aria-hidden="true">
                     <Mail size={32} />
                   </div>
@@ -113,10 +204,50 @@ export default function Contact() {
                 <>
                   <h3 className="text-xl font-semibold text-text">Send a Message</h3>
                   <p className="mt-1 text-sm text-text-light">We'll get back to you as soon as we can.</p>
-                  <form onSubmit={handleSubmit} className="mt-6 space-y-4">
+
+                  {/* Error summary */}
+                  {hasErrors && (
+                    <div
+                      ref={errorRef}
+                      role="alert"
+                      aria-live="assertive"
+                      tabIndex={-1}
+                      className="mt-4 rounded-lg border border-red-200 bg-red-50 p-4"
+                    >
+                      <div className="flex items-center gap-2">
+                        <AlertCircle size={16} className="shrink-0 text-red-600" aria-hidden="true" />
+                        <p className="text-sm font-medium text-red-800">
+                          {errors.form || 'Please fix the errors below.'}
+                        </p>
+                      </div>
+                      {!errors.form && (
+                        <ul className="mt-2 list-disc pl-5 text-sm text-red-700">
+                          {errors.name && <li>{errors.name}</li>}
+                          {errors.email && <li>{errors.email}</li>}
+                          {errors.phone && <li>{errors.phone}</li>}
+                          {errors.subject && <li>{errors.subject}</li>}
+                          {errors.message && <li>{errors.message}</li>}
+                        </ul>
+                      )}
+                    </div>
+                  )}
+
+                  <form ref={formRef} onSubmit={handleSubmit} className="mt-6 space-y-4" noValidate>
+                    {/* Honeypot — hidden from real users, bots will fill it */}
+                    <div className="absolute -left-[9999px]" aria-hidden="true">
+                      <label htmlFor="website">Website</label>
+                      <input
+                        type="text"
+                        id="website"
+                        name="website"
+                        tabIndex={-1}
+                        autoComplete="off"
+                      />
+                    </div>
+
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-text">
-                        Full Name
+                        Full Name <span className="text-red-500" aria-hidden="true">*</span>
                       </label>
                       <input
                         type="text"
@@ -124,13 +255,23 @@ export default function Contact() {
                         name="name"
                         required
                         autoComplete="name"
-                        className="mt-1 block w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm text-text placeholder:text-text-light/50 focus:border-primary focus:outline-2 focus:outline-primary"
+                        maxLength={100}
+                        aria-required="true"
+                        aria-invalid={!!errors.name}
+                        aria-describedby={errors.name ? 'name-error' : undefined}
+                        className={`mt-1 block w-full cursor-pointer rounded-lg border px-4 py-2.5 text-sm text-text placeholder:text-text-light/50 focus:outline-2 focus:outline-primary ${
+                          errors.name ? 'border-red-400 focus:border-red-400' : 'border-gray-300 focus:border-primary'
+                        }`}
                         placeholder="Your full name"
                       />
+                      {errors.name && (
+                        <p id="name-error" className="mt-1 text-xs text-red-600">{errors.name}</p>
+                      )}
                     </div>
+
                     <div>
                       <label htmlFor="email" className="block text-sm font-medium text-text">
-                        Email
+                        Email <span className="text-red-500" aria-hidden="true">*</span>
                       </label>
                       <input
                         type="email"
@@ -138,10 +279,20 @@ export default function Contact() {
                         name="email"
                         required
                         autoComplete="email"
-                        className="mt-1 block w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm text-text placeholder:text-text-light/50 focus:border-primary focus:outline-2 focus:outline-primary"
+                        maxLength={254}
+                        aria-required="true"
+                        aria-invalid={!!errors.email}
+                        aria-describedby={errors.email ? 'email-error' : undefined}
+                        className={`mt-1 block w-full cursor-pointer rounded-lg border px-4 py-2.5 text-sm text-text placeholder:text-text-light/50 focus:outline-2 focus:outline-primary ${
+                          errors.email ? 'border-red-400 focus:border-red-400' : 'border-gray-300 focus:border-primary'
+                        }`}
                         placeholder="you@example.com"
                       />
+                      {errors.email && (
+                        <p id="email-error" className="mt-1 text-xs text-red-600">{errors.email}</p>
+                      )}
                     </div>
+
                     <div>
                       <label htmlFor="phone" className="block text-sm font-medium text-text">
                         Phone <span className="text-text-light font-normal">(optional)</span>
@@ -151,19 +302,33 @@ export default function Contact() {
                         id="phone"
                         name="phone"
                         autoComplete="tel"
-                        className="mt-1 block w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm text-text placeholder:text-text-light/50 focus:border-primary focus:outline-2 focus:outline-primary"
+                        maxLength={20}
+                        aria-invalid={!!errors.phone}
+                        aria-describedby={errors.phone ? 'phone-error' : undefined}
+                        className={`mt-1 block w-full cursor-pointer rounded-lg border px-4 py-2.5 text-sm text-text placeholder:text-text-light/50 focus:outline-2 focus:outline-primary ${
+                          errors.phone ? 'border-red-400 focus:border-red-400' : 'border-gray-300 focus:border-primary'
+                        }`}
                         placeholder="07xxx xxx xxx"
                       />
+                      {errors.phone && (
+                        <p id="phone-error" className="mt-1 text-xs text-red-600">{errors.phone}</p>
+                      )}
                     </div>
+
                     <div>
                       <label htmlFor="subject" className="block text-sm font-medium text-text">
-                        Subject
+                        Subject <span className="text-red-500" aria-hidden="true">*</span>
                       </label>
                       <select
                         id="subject"
                         name="subject"
                         required
-                        className="mt-1 block w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm text-text focus:border-primary focus:outline-2 focus:outline-primary"
+                        aria-required="true"
+                        aria-invalid={!!errors.subject}
+                        aria-describedby={errors.subject ? 'subject-error' : undefined}
+                        className={`mt-1 block w-full cursor-pointer rounded-lg border px-4 py-2.5 text-sm text-text focus:outline-2 focus:outline-primary ${
+                          errors.subject ? 'border-red-400 focus:border-red-400' : 'border-gray-300 focus:border-primary'
+                        }`}
                       >
                         <option value="">Select a subject</option>
                         <option value="general">General Enquiry</option>
@@ -174,25 +339,40 @@ export default function Contact() {
                         <option value="donation">Donations</option>
                         <option value="other">Other</option>
                       </select>
+                      {errors.subject && (
+                        <p id="subject-error" className="mt-1 text-xs text-red-600">{errors.subject}</p>
+                      )}
                     </div>
+
                     <div>
                       <label htmlFor="message" className="block text-sm font-medium text-text">
-                        Message
+                        Message <span className="text-red-500" aria-hidden="true">*</span>
                       </label>
                       <textarea
                         id="message"
                         name="message"
                         required
                         rows={4}
-                        className="mt-1 block w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm text-text placeholder:text-text-light/50 focus:border-primary focus:outline-2 focus:outline-primary resize-y"
+                        maxLength={2000}
+                        aria-required="true"
+                        aria-invalid={!!errors.message}
+                        aria-describedby={errors.message ? 'message-error' : undefined}
+                        className={`mt-1 block w-full cursor-pointer rounded-lg border px-4 py-2.5 text-sm text-text placeholder:text-text-light/50 focus:outline-2 focus:outline-primary resize-y ${
+                          errors.message ? 'border-red-400 focus:border-red-400' : 'border-gray-300 focus:border-primary'
+                        }`}
                         placeholder="How can we help you?"
                       />
+                      {errors.message && (
+                        <p id="message-error" className="mt-1 text-xs text-red-600">{errors.message}</p>
+                      )}
                     </div>
+
                     <button
                       type="submit"
-                      className="w-full rounded-lg bg-primary px-6 py-3 font-semibold text-white transition-colors hover:bg-primary-light focus:outline-2 focus:outline-offset-2 focus:outline-primary"
+                      disabled={isSubmitting}
+                      className="w-full cursor-pointer rounded-lg bg-primary px-6 py-3 font-semibold text-white transition-colors hover:bg-primary-light focus:outline-2 focus:outline-offset-2 focus:outline-primary disabled:opacity-60 disabled:cursor-not-allowed"
                     >
-                      Send Message
+                      {isSubmitting ? 'Sending...' : 'Send Message'}
                     </button>
                   </form>
                 </>
