@@ -63,12 +63,12 @@ export default function Contact() {
                   </a>
                 </li>
                 <li>
-                  <a href="mailto:info@masjidkhazra.org" className="flex items-start gap-3 group">
+                  <a href="mailto:masjidekhazra@gmail.com" className="flex items-start gap-3 group">
                     <Mail size={20} className="mt-0.5 shrink-0 text-primary" aria-hidden="true" />
                     <div>
                       <span className="block text-sm font-medium text-text">Email</span>
                       <span className="text-sm text-text-light group-hover:text-primary transition-colors">
-                        info@masjidkhazra.org
+                        masjidekhazra@gmail.com
                       </span>
                     </div>
                   </a>
@@ -84,12 +84,16 @@ export default function Contact() {
                 </li>
               </ul>
 
-              <div className="mt-8">
-                <h4 className="text-sm font-semibold text-text">Funeral Enquiries</h4>
-                <p className="mt-1 text-sm text-text-light">
-                  For urgent funeral arrangements, contact Funeral Director Amir Mushtaq
-                  on <a href="tel:01414221154" className="text-primary font-medium hover:underline">0141 422 1154</a>.
-                </p>
+              <div className="mt-8 space-y-4">
+                <div>
+                  <h4 className="text-sm font-semibold text-text">Funeral Enquiries</h4>
+                  <p className="mt-1 text-sm text-text-light">
+                    Tahir Bashir: <a href="tel:07980900882" className="text-primary font-medium hover:underline">07980 900 882</a><br />
+                    Amir Mushtaq: <a href="tel:07508766843" className="text-primary font-medium hover:underline">07508 766 843</a><br />
+                    Office: <a href="tel:01414221154" className="text-primary font-medium hover:underline">0141 422 1154 (Option 2)</a><br />
+                    Email: <a href="mailto:fsmek@outlook.com" className="text-primary font-medium hover:underline">fsmek@outlook.com</a>
+                  </p>
+                </div>
               </div>
             </div>
 

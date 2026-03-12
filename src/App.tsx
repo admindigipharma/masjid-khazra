@@ -3,6 +3,7 @@ import ScrollToTop from './components/ScrollToTop'
 import Layout from './components/Layout'
 import Home from './pages/Home'
 import About from './pages/About'
+import PrayerTimes from './pages/PrayerTimes'
 import Services from './pages/Services'
 import Funerals from './pages/Funerals'
 import Charity from './pages/Charity'
@@ -17,6 +18,7 @@ export default function App() {
         <Route element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
+          <Route path="prayer-times" element={<PrayerTimes />} />
           <Route path="services" element={<Services />} />
           <Route path="funerals" element={<Funerals />} />
           <Route path="charity" element={<Charity />} />
