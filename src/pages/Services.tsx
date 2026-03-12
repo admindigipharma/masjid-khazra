@@ -1,7 +1,13 @@
 import { Link } from 'react-router-dom'
-import { GraduationCap, Heart, Users, Eye, MessageCircle, Smartphone } from 'lucide-react'
+import { GraduationCap, Heart, Users, Eye, MessageCircle, Smartphone, Cross } from 'lucide-react'
 
 const services = [
+  {
+    icon: Cross,
+    title: 'Funeral Services',
+    description: 'One of the few mosques offering dedicated funeral services. Our Funeral Director, Amir Mushtaq, provides compassionate support and guidance through every step, in accordance with Islamic tradition.',
+    cta: { label: 'Learn More', to: '/funerals' },
+  },
   {
     icon: Heart,
     title: 'Marriage Services',
@@ -36,7 +42,7 @@ export default function Services() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-3xl font-bold text-white sm:text-4xl lg:text-5xl">Our Services</h1>
           <p className="mt-4 max-w-2xl text-lg text-white/80">
-            Beyond daily prayers, we provide a range of services to support our community's spiritual, educational, and social needs.
+            From funeral services to education and marriage — we provide a range of services to support our community's spiritual, educational, and social needs.
           </p>
         </div>
       </section>
