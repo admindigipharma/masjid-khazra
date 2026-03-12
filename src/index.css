@@ -35,6 +35,41 @@
     line-height: 1.2;
   }
 
+  /* Pulse animation for donate CTAs */
+  .pulse-cta {
+    position: relative;
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .pulse-cta::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: inherit;
+    animation: pulse-border 2s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 0 0 rgba(248, 157, 53, 0.4);
+    }
+    50% {
+      box-shadow: 0 0 20px 4px rgba(248, 157, 53, 0.3);
+    }
+  }
+
+  @keyframes pulse-border {
+    0%, 100% {
+      box-shadow: 0 0 0 0 rgba(248, 157, 53, 0.5);
+      opacity: 1;
+    }
+    50% {
+      box-shadow: 0 0 0 8px rgba(248, 157, 53, 0);
+      opacity: 0;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     html {
       scroll-behavior: auto;

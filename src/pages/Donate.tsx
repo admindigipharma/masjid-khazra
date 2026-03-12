@@ -154,7 +154,7 @@ export default function Donate() {
             href={MYDONA_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-6 inline-block rounded-lg bg-accent px-10 py-4 text-lg font-semibold text-white transition-colors hover:bg-accent-hover focus:outline-2 focus:outline-offset-2 focus:outline-accent"
+            className="pulse-cta mt-6 inline-block rounded-lg bg-accent px-10 py-4 text-lg font-semibold text-white transition-colors hover:bg-accent-hover focus:outline-2 focus:outline-offset-2 focus:outline-accent"
           >
             Donate via MyDona
           </a>

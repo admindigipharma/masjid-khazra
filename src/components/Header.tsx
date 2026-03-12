@@ -45,7 +45,7 @@ export default function Header() {
           ))}
           <Link
             to="/donate"
-            className="ml-2 rounded-lg bg-cta px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-cta-hover focus:outline-2 focus:outline-offset-2 focus:outline-cta"
+            className="pulse-cta ml-2 rounded-lg bg-cta px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-cta-hover focus:outline-2 focus:outline-offset-2 focus:outline-cta"
           >
             Donate
           </Link>
