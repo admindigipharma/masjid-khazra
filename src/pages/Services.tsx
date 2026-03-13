@@ -21,6 +21,7 @@ export default function Services() {
       <HeroSection
         title="Our Services"
         subtitle="From funeral services to education and marriage — we provide a range of services to support our community's spiritual, educational, and social needs."
+        startIndex={2}
       />
 
       {/* Funeral Services Card */}

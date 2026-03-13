@@ -100,6 +100,7 @@ export default function Contact() {
       <HeroSection
         title="Contact Us"
         subtitle="We'd love to hear from you. Whether you have a question, need to arrange a service, or want to get involved — reach out."
+        startIndex={4}
       />
 
       <section className="py-12 sm:py-16" aria-labelledby="contact-heading">

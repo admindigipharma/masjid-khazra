@@ -49,6 +49,7 @@ export default function FAQ() {
       <HeroSection
         title="Frequently Asked Questions"
         subtitle="Common questions about our madrassa, classes, and enrolment."
+        startIndex={3}
       />
 
       <section className="py-12 sm:py-16" aria-labelledby="faq-heading">

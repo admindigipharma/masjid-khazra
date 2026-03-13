@@ -76,6 +76,7 @@ export default function Charity() {
       <HeroSection
         title="Charity & Community"
         subtitle="Serving humanity through compassion. See how your support makes a difference in the lives of families across Glasgow and beyond."
+        startIndex={1}
       />
 
       {/* Impact Areas */}

@@ -11,10 +11,11 @@ const heroImages = [
 interface HeroSectionProps {
   title: string
   subtitle: string
+  startIndex?: number
 }
 
-export default function HeroSection({ title, subtitle }: HeroSectionProps) {
-  const [activeIndex, setActiveIndex] = useState(0)
+export default function HeroSection({ title, subtitle, startIndex = 0 }: HeroSectionProps) {
+  const [activeIndex, setActiveIndex] = useState(startIndex % heroImages.length)
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
