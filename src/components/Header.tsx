@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { Menu, X, ChevronDown } from 'lucide-react'
 
 const aboutLinks = [
@@ -16,6 +16,7 @@ const serviceLinks = [
 
 
 export default function Header() {
+  const navigate = useNavigate()
   const [mobileOpen, setMobileOpen] = useState(false)
   const [aboutOpen, setAboutOpen] = useState(false)
   const [servicesOpen, setServicesOpen] = useState(false)
@@ -50,7 +51,11 @@ export default function Header() {
               className="flex cursor-pointer items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium text-text transition-colors duration-150 hover:bg-primary/5 hover:text-primary"
               aria-expanded={aboutOpen}
               aria-haspopup="true"
-              onClick={() => setAboutOpen(!aboutOpen)}
+              onClick={() => {
+                setAboutOpen(false)
+                navigate('/about')
+                window.scrollTo({ top: 0, behavior: 'smooth' })
+              }}
             >
               About Us
               <ChevronDown size={14} className={`transition-transform ${aboutOpen ? 'rotate-180' : ''}`} aria-hidden="true" />
@@ -112,7 +117,11 @@ export default function Header() {
               className="flex cursor-pointer items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium text-text transition-colors duration-150 hover:bg-primary/5 hover:text-primary"
               aria-expanded={servicesOpen}
               aria-haspopup="true"
-              onClick={() => setServicesOpen(!servicesOpen)}
+              onClick={() => {
+                setServicesOpen(false)
+                navigate('/services')
+                window.scrollTo({ top: 0, behavior: 'smooth' })
+              }}
             >
               Services
               <ChevronDown size={14} className={`transition-transform ${servicesOpen ? 'rotate-180' : ''}`} aria-hidden="true" />
