@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Clock, Smartphone, MessageCircle, ChevronLeft, ChevronRight } from 'lucide-react'
+import { Clock, Smartphone, MessageCircle, ChevronLeft, ChevronRight, Printer } from 'lucide-react'
 import prayerData from '../data/prayer-times.json'
 
 const MONTH_NAMES = [
@@ -207,10 +207,20 @@ export default function PrayerTimes() {
             </table>
           </div>
 
-          <p className="mt-4 text-xs text-text-light">
-            Jamaat times are set by the mosque committee and may be adjusted. Fridays are highlighted.
-            Today's date is highlighted in orange.
-          </p>
+          <div className="mt-4 flex items-center justify-between">
+            <p className="text-xs text-text-light">
+              Jamaat times are set by the mosque committee and may be adjusted. Fridays are highlighted.
+              Today's date is highlighted in orange.
+            </p>
+            <button
+              onClick={() => window.print()}
+              className="flex cursor-pointer items-center gap-2 rounded-lg border border-gray-200 px-4 py-2 text-sm font-medium text-text transition-colors hover:bg-primary/5 hover:text-primary focus:outline-2 focus:outline-offset-2 focus:outline-primary"
+              aria-label={`Print ${MONTH_NAMES[selectedMonth - 1]} 2026 timetable`}
+            >
+              <Printer size={16} aria-hidden="true" />
+              Print
+            </button>
+          </div>
         </div>
       </section>
 
