@@ -129,8 +129,8 @@ export default function About() {
           <h3 className="mt-8 text-lg font-semibold text-text">Imams & Religious Advisors</h3>
           <div className="mt-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {[
-              { initials: 'MR', name: 'Allamah Mohammed Rizwan', role: 'Head Imam' },
-              { initials: 'MH', name: 'Imam Mazher Hussain', role: 'Imam' },
+              { initials: 'MH', name: 'Imam Mazher Hussain', role: 'Head Imam' },
+              { initials: 'MR', name: 'Allamah Mohammed Rizwan', role: 'Imam' },
               { initials: 'AC', name: 'Imam Amin Chisti', role: 'Imam' },
             ].map((person) => (
               <div key={person.name} className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
