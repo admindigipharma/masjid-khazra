@@ -42,7 +42,7 @@ export default function Home() {
       {/* Hero */}
       <section className="relative overflow-hidden bg-primary py-20 sm:py-28 lg:py-36">
         <img
-          src="/images/prayer-hall-congregation.jpg"
+          src="/images/hero-dome-ceiling.jpg"
           alt=""
           aria-hidden="true"
           className="absolute inset-0 h-full w-full object-cover"
