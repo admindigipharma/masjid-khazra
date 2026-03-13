@@ -3,7 +3,7 @@ import { ExternalLink, GraduationCap } from 'lucide-react'
 export default function IslamicDiploma() {
   return (
     <>
-      <section className="bg-primary pt-32 pb-16 sm:pt-36 sm:pb-20">
+      <section className="bg-primary py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-3xl font-bold text-white sm:text-4xl lg:text-5xl">Islamic Diploma</h1>
           <p className="mt-4 max-w-2xl text-lg text-white/80">
