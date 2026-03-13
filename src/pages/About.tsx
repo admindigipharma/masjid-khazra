@@ -9,9 +9,9 @@ export default function About() {
           src="/images/mihrab-dome.jpg"
           alt=""
           aria-hidden="true"
-          className="absolute inset-0 h-full w-full object-cover opacity-15 mix-blend-luminosity"
+          className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/95 to-primary/80" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/85 via-primary/70 to-primary/50" aria-hidden="true" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-3xl font-bold text-white sm:text-4xl lg:text-5xl">About Us</h1>
           <p className="mt-4 max-w-2xl text-lg text-white/80">
