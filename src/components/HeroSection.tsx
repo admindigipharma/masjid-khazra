@@ -29,7 +29,7 @@ export default function HeroSection({ title, subtitle, startIndex = 0 }: HeroSec
   }, [])
 
   return (
-    <section className="relative overflow-hidden bg-primary py-16 sm:py-20">
+    <section className="relative overflow-hidden bg-primary pt-32 pb-16 sm:pt-36 sm:pb-20">
       {heroImages.map((src, i) => (
         <img
           key={src}

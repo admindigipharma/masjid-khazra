@@ -40,7 +40,7 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-primary py-20 sm:py-28 lg:py-36">
+      <section className="relative overflow-hidden bg-primary pt-36 pb-20 sm:pt-44 sm:pb-28 lg:pt-52 lg:pb-36">
         <img
           src="/images/hero-dome-ceiling.jpg"
           alt=""
