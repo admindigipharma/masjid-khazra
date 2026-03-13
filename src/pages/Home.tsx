@@ -41,10 +41,13 @@ export default function Home() {
     <>
       {/* Hero */}
       <section className="relative overflow-hidden bg-primary py-20 sm:py-28 lg:py-36">
-        <div className="absolute inset-0 opacity-[0.07]" aria-hidden="true">
-          <div className="absolute -right-20 -top-20 h-96 w-96 rounded-full bg-white/20 blur-3xl" />
-          <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-accent/30 blur-3xl" />
-        </div>
+        <img
+          src="/images/prayer-hall-congregation.jpg"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 h-full w-full object-cover opacity-20 mix-blend-luminosity"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/95 to-primary/70" aria-hidden="true" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl">
             <p className="mb-3 inline-block rounded-full bg-white/10 px-4 py-1.5 text-sm font-medium text-white/90 backdrop-blur-sm">
