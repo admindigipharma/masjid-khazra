@@ -231,15 +231,35 @@ export default function PrayerTimes() {
             Never Miss a Prayer
           </h2>
           <div className="mt-8 grid gap-6 sm:grid-cols-2 max-w-2xl">
-            <div className="flex items-start gap-4 rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary" aria-hidden="true">
-                <Smartphone size={20} />
+            <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+              <div className="flex items-start gap-4">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary" aria-hidden="true">
+                  <Smartphone size={20} />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-text">MyMasjid App</h3>
+                  <p className="mt-1 text-sm text-text-light">
+                    Get daily prayer times on your phone. Search "My Masjid" in your app store, select UK &rarr; Glasgow &rarr; Masjid-E-Khazra.
+                  </p>
+                </div>
               </div>
-              <div>
-                <h3 className="font-semibold text-text">MyMasjid App</h3>
-                <p className="mt-1 text-sm text-text-light">
-                  Accurate daily prayer times and mosque notifications. Available on Android and iOS.
-                </p>
+              <div className="mt-4 flex flex-wrap gap-3">
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.teo.mymasjid"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex cursor-pointer items-center gap-2 rounded-lg bg-primary/10 px-4 py-2 text-xs font-medium text-primary transition-colors hover:bg-primary/20"
+                >
+                  Android (Google Play)
+                </a>
+                <a
+                  href="https://apps.apple.com/us/app/my-masjid-community/id1452575134"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex cursor-pointer items-center gap-2 rounded-lg bg-primary/10 px-4 py-2 text-xs font-medium text-primary transition-colors hover:bg-primary/20"
+                >
+                  iPhone (App Store)
+                </a>
               </div>
             </div>
             <a
