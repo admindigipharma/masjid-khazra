@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Heart, Utensils, GraduationCap, Users } from 'lucide-react'
+import HeroSection from '../components/HeroSection'
 
 const updates = [
   {
@@ -72,15 +73,10 @@ function getCategoryColour(category: string) {
 export default function Charity() {
   return (
     <>
-      {/* Hero */}
-      <section className="bg-primary py-16 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold text-white sm:text-4xl lg:text-5xl">Charity & Community</h1>
-          <p className="mt-4 max-w-2xl text-lg text-white/80">
-            Serving humanity through compassion. See how your support makes a difference in the lives of families across Glasgow and beyond.
-          </p>
-        </div>
-      </section>
+      <HeroSection
+        title="Charity & Community"
+        subtitle="Serving humanity through compassion. See how your support makes a difference in the lives of families across Glasgow and beyond."
+      />
 
       {/* Impact Areas */}
       <section className="py-12 sm:py-16" aria-labelledby="impact-heading">
