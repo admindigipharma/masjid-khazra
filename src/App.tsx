@@ -10,6 +10,8 @@ import Funerals from './pages/Funerals'
 import Charity from './pages/Charity'
 import Donate from './pages/Donate'
 import Contact from './pages/Contact'
+import FAQ from './pages/FAQ'
+import IslamicDiploma from './pages/IslamicDiploma'
 
 export default function App() {
   return (
@@ -26,6 +28,8 @@ export default function App() {
           <Route path="charity" element={<Charity />} />
           <Route path="donate" element={<Donate />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="faq" element={<FAQ />} />
+          <Route path="islamic-diploma" element={<IslamicDiploma />} />
         </Route>
       </Routes>
     </BrowserRouter>
