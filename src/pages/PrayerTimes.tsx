@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Clock, Smartphone, MessageCircle, ChevronLeft, ChevronRight, Printer } from 'lucide-react'
 import prayerData from '../data/prayer-times.json'
+import HeroSection from '../components/HeroSection'
 
 const MONTH_NAMES = [
   'January', 'February', 'March', 'April', 'May', 'June',
@@ -52,15 +53,10 @@ export default function PrayerTimes() {
 
   return (
     <>
-      {/* Hero */}
-      <section className="bg-primary py-16 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold text-white sm:text-4xl lg:text-5xl">Prayer Times</h1>
-          <p className="mt-4 max-w-2xl text-lg text-white/80">
-            Daily and monthly prayer timetables for Masjid-e-Khazra, Glasgow.
-          </p>
-        </div>
-      </section>
+      <HeroSection
+        title="Prayer Times"
+        subtitle="Daily and monthly prayer timetables for Masjid-e-Khazra, Glasgow."
+      />
 
       {/* Today's Times */}
       {today && (
