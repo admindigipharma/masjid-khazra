@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { Menu, X, ChevronDown } from 'lucide-react'
 
@@ -20,15 +20,36 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [aboutOpen, setAboutOpen] = useState(false)
   const [servicesOpen, setServicesOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 10)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    onScroll()
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  const solid = scrolled || mobileOpen
+
+  const navLink = (isActive: boolean) =>
+    `cursor-pointer rounded-lg px-3 py-2 text-sm font-medium transition-colors duration-150 ${
+      isActive
+        ? solid ? 'bg-primary/10 text-primary' : 'bg-white/15 text-white'
+        : solid ? 'text-text hover:bg-primary/5 hover:text-primary' : 'text-white/90 hover:bg-white/10 hover:text-white'
+    }`
+
+  const dropdownBtn = solid
+    ? 'flex cursor-pointer items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium text-text transition-colors duration-150 hover:bg-primary/5 hover:text-primary'
+    : 'flex cursor-pointer items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium text-white/90 transition-colors duration-150 hover:bg-white/10 hover:text-white'
 
   return (
-    <header className="sticky top-0 z-50 border-b border-gray-100 bg-white/80 backdrop-blur-lg">
+    <header className={`sticky top-0 z-50 transition-colors duration-300 ${solid ? 'border-b border-gray-100 bg-white/80 backdrop-blur-lg' : 'bg-transparent'}`}>
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         <Link to="/" className="flex items-center cursor-pointer" aria-label="Masjid-e-Khazra home">
           <img
             src="/images/logo-landscape.png"
             alt="Masjid-e-Khazra"
-            className="h-10 w-auto sm:h-12"
+            className={`h-10 w-auto sm:h-12 transition-all duration-300 ${solid ? '' : 'brightness-0 invert'}`}
           />
         </Link>
 
@@ -36,11 +57,7 @@ export default function Header() {
           <NavLink
             to="/"
             end
-            className={({ isActive }) =>
-              `cursor-pointer rounded-lg px-3 py-2 text-sm font-medium transition-colors duration-150 ${
-                isActive ? 'bg-primary/10 text-primary' : 'text-text hover:bg-primary/5 hover:text-primary'
-              }`
-            }
+            className={({ isActive }) => navLink(isActive)}
           >
             Home
           </NavLink>
@@ -48,7 +65,7 @@ export default function Header() {
           {/* About Dropdown */}
           <div className="relative" onMouseEnter={() => setAboutOpen(true)} onMouseLeave={() => setAboutOpen(false)}>
             <button
-              className="flex cursor-pointer items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium text-text transition-colors duration-150 hover:bg-primary/5 hover:text-primary"
+              className={dropdownBtn}
               aria-expanded={aboutOpen}
               aria-haspopup="true"
               onClick={() => {
@@ -91,22 +108,14 @@ export default function Header() {
 
           <NavLink
             to="/prayer-times"
-            className={({ isActive }) =>
-              `cursor-pointer rounded-lg px-3 py-2 text-sm font-medium transition-colors duration-150 ${
-                isActive ? 'bg-primary/10 text-primary' : 'text-text hover:bg-primary/5 hover:text-primary'
-              }`
-            }
+            className={({ isActive }) => navLink(isActive)}
           >
             Prayer Times
           </NavLink>
 
           <NavLink
             to="/charity"
-            className={({ isActive }) =>
-              `cursor-pointer rounded-lg px-3 py-2 text-sm font-medium transition-colors duration-150 ${
-                isActive ? 'bg-primary/10 text-primary' : 'text-text hover:bg-primary/5 hover:text-primary'
-              }`
-            }
+            className={({ isActive }) => navLink(isActive)}
           >
             News
           </NavLink>
@@ -114,7 +123,7 @@ export default function Header() {
           {/* Services Dropdown */}
           <div className="relative" onMouseEnter={() => setServicesOpen(true)} onMouseLeave={() => setServicesOpen(false)}>
             <button
-              className="flex cursor-pointer items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium text-text transition-colors duration-150 hover:bg-primary/5 hover:text-primary"
+              className={dropdownBtn}
               aria-expanded={servicesOpen}
               aria-haspopup="true"
               onClick={() => {
@@ -147,22 +156,14 @@ export default function Header() {
 
           <NavLink
             to="/faq"
-            className={({ isActive }) =>
-              `cursor-pointer rounded-lg px-3 py-2 text-sm font-medium transition-colors duration-150 ${
-                isActive ? 'bg-primary/10 text-primary' : 'text-text hover:bg-primary/5 hover:text-primary'
-              }`
-            }
+            className={({ isActive }) => navLink(isActive)}
           >
             FAQ
           </NavLink>
 
           <NavLink
             to="/contact"
-            className={({ isActive }) =>
-              `cursor-pointer rounded-lg px-3 py-2 text-sm font-medium transition-colors duration-150 ${
-                isActive ? 'bg-primary/10 text-primary' : 'text-text hover:bg-primary/5 hover:text-primary'
-              }`
-            }
+            className={({ isActive }) => navLink(isActive)}
           >
             Contact
           </NavLink>
@@ -176,7 +177,7 @@ export default function Header() {
         </nav>
 
         <button
-          className="cursor-pointer rounded-lg p-2 text-text transition-colors hover:bg-primary/5 lg:hidden focus:outline-2 focus:outline-offset-2 focus:outline-primary"
+          className={`cursor-pointer rounded-lg p-2 transition-colors lg:hidden focus:outline-2 focus:outline-offset-2 focus:outline-primary ${solid ? 'text-text hover:bg-primary/5' : 'text-white hover:bg-white/10'}`}
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-expanded={mobileOpen}
           aria-controls="mobile-nav"
