@@ -69,7 +69,7 @@ export default function About() {
       </section>
 
       {/* Facilities */}
-      <section className="bg-white py-12 sm:py-16" aria-labelledby="facilities-heading">
+      <section id="facilities" className="bg-white py-12 sm:py-16" aria-labelledby="facilities-heading">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 id="facilities-heading" className="text-2xl font-semibold text-text sm:text-3xl">Our Facilities</h2>
           <p className="mt-2 text-text-light">
@@ -90,6 +90,84 @@ export default function About() {
                 <p className="mt-2 text-sm text-text-light">{facility.description}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Staff & Committee */}
+      <section id="staff" className="py-12 sm:py-16" aria-labelledby="staff-heading">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 id="staff-heading" className="text-2xl font-semibold text-text sm:text-3xl">Staff & Committee</h2>
+          <p className="mt-2 text-text-light">
+            Our dedicated team of scholars, volunteers, and committee members serve the community.
+          </p>
+
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {/* Imam */}
+            <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary font-bold text-lg" aria-hidden="true">
+                AR
+              </div>
+              <h3 className="mt-4 text-lg font-semibold text-text">Allamah Mohammed Rizwan</h3>
+              <p className="text-sm font-medium text-primary">Head Imam</p>
+              <p className="mt-2 text-sm text-text-light">
+                Leading daily prayers, Jummah khutbahs, and religious guidance for the community.
+              </p>
+            </div>
+
+            {/* Funeral Director 1 */}
+            <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary font-bold text-lg" aria-hidden="true">
+                TB
+              </div>
+              <h3 className="mt-4 text-lg font-semibold text-text">Tahir Bashir</h3>
+              <p className="text-sm font-medium text-primary">Funeral Director</p>
+              <p className="mt-2 text-sm text-text-light">
+                Coordinating funeral services and supporting bereaved families across Glasgow.
+              </p>
+              <a href="tel:07980900882" className="mt-3 inline-block cursor-pointer text-sm font-medium text-primary hover:underline">
+                07980 900 882
+              </a>
+            </div>
+
+            {/* Funeral Director 2 */}
+            <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary font-bold text-lg" aria-hidden="true">
+                AM
+              </div>
+              <h3 className="mt-4 text-lg font-semibold text-text">Amir Mushtaq</h3>
+              <p className="text-sm font-medium text-primary">Funeral Director</p>
+              <p className="mt-2 text-sm text-text-light">
+                BSc (Hons) MCOptom. Funeral services coordination and community outreach.
+              </p>
+              <a href="tel:07508766843" className="mt-3 inline-block cursor-pointer text-sm font-medium text-primary hover:underline">
+                07508 766 843
+              </a>
+            </div>
+          </div>
+
+          {/* Committee */}
+          <div className="mt-10">
+            <h3 className="text-lg font-semibold text-text">Mosque Committee</h3>
+            <p className="mt-2 text-sm text-text-light">
+              The mosque is managed by a dedicated committee of community volunteers who oversee operations,
+              maintenance, and strategic direction.
+            </p>
+            <div className="mt-4 flex flex-wrap gap-3">
+              {[
+                'Sabir Sarwar',
+              ].map((name) => (
+                <span
+                  key={name}
+                  className="inline-flex items-center rounded-full bg-primary/5 px-4 py-2 text-sm font-medium text-text"
+                >
+                  {name}
+                </span>
+              ))}
+              <span className="inline-flex items-center rounded-full border border-dashed border-gray-300 px-4 py-2 text-sm text-text-light">
+                Additional members to be confirmed
+              </span>
+            </div>
           </div>
         </div>
       </section>
