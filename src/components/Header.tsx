@@ -23,14 +23,12 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-gray-100 bg-white/80 backdrop-blur-lg">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-        <Link to="/" className="flex items-center gap-3 cursor-pointer" aria-label="Masjid-e-Khazra home">
-          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white font-bold text-lg shadow-sm" aria-hidden="true">
-            M
-          </div>
-          <div>
-            <span className="block text-lg font-semibold text-primary leading-tight">Masjid-e-Khazra</span>
-            <span className="block text-xs text-text-light leading-tight">Glasgow</span>
-          </div>
+        <Link to="/" className="flex items-center cursor-pointer" aria-label="Masjid-e-Khazra home">
+          <img
+            src="/images/logo-landscape.png"
+            alt="Masjid-e-Khazra"
+            className="h-10 w-auto sm:h-12"
+          />
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Main navigation">
