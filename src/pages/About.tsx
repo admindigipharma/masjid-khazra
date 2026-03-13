@@ -78,12 +78,18 @@ export default function About() {
 
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {[
-              { title: 'Main Prayer Hall', description: 'Spacious prayer hall accommodating hundreds of worshippers for daily prayers and Jummah.' },
-              { title: 'Education Rooms', description: 'Dedicated classrooms for Quran studies, Islamic education, and community learning programmes.' },
-              { title: 'Community Space', description: 'Multipurpose areas for community events, lectures, meetings, and social gatherings.' },
-              { title: 'Wudu Facilities', description: 'Clean and well-maintained ablution facilities for men and women.' },
-              { title: 'Car Parking', description: 'Parking available for worshippers and visitors to the mosque.' },
-              { title: 'Accessible Entry', description: 'We strive to make our mosque accessible to all members of the community.' },
+              { title: 'Main Prayer Hall', description: 'Accommodates up to 700 worshippers.' },
+              { title: 'Lower Prayer Hall', description: 'Capacity of 350 worshippers.' },
+              { title: 'Middle Prayer Hall', description: 'Capacity of 350 worshippers.' },
+              { title: 'Two Sisters\' Halls', description: 'Two halls devoted to sisters (new extension). Capacity 300 worshippers.' },
+              { title: 'Library', description: 'Large selection of books in English, Arabic & Urdu with study area.' },
+              { title: 'Catering Kitchen', description: 'Fully equipped catering kitchen for functions.' },
+              { title: 'Management & Imam Offices', description: 'Located on mid-level and ground floor.' },
+              { title: 'Elevator Access', description: 'Access to all floors for elderly & disabled.' },
+              { title: 'Mortuary & Janaza Ghusl', description: 'Located on ground floor.' },
+              { title: 'Four Wudhu Areas', description: 'For men and women, including disabled toilet access.' },
+              { title: 'Teaching, Meeting & Seminar Areas', description: 'Part of current extension.' },
+              { title: 'Residential Lodging', description: 'Located inside the mosque to accommodate the Imam.' },
             ].map((facility) => (
               <div key={facility.title} className="rounded-lg border border-gray-200 p-5">
                 <h3 className="font-semibold text-text">{facility.title}</h3>
@@ -91,6 +97,10 @@ export default function About() {
               </div>
             ))}
           </div>
+
+          <p className="mt-6 text-sm text-text-light italic">
+            For bookings, please complete the facilities booking form which can be collected from the mosque office.
+          </p>
         </div>
       </section>
 
