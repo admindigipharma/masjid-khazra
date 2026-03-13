@@ -69,6 +69,8 @@ export default function Header() {
                           setTimeout(() => {
                             document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth' })
                           }, 100)
+                        } else {
+                          window.scrollTo({ top: 0, behavior: 'smooth' })
                         }
                       }}
                       className="block cursor-pointer px-4 py-2 text-sm text-text transition-colors hover:bg-primary/5 hover:text-primary"
