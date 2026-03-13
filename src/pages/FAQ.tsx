@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { ChevronDown } from 'lucide-react'
+import HeroSection from '../components/HeroSection'
 
 const faqs = [
   {
@@ -45,14 +46,10 @@ export default function FAQ() {
 
   return (
     <>
-      <section className="bg-primary py-16 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold text-white sm:text-4xl lg:text-5xl">Frequently Asked Questions</h1>
-          <p className="mt-4 max-w-2xl text-lg text-white/80">
-            Common questions about our madrassa, classes, and enrolment.
-          </p>
-        </div>
-      </section>
+      <HeroSection
+        title="Frequently Asked Questions"
+        subtitle="Common questions about our madrassa, classes, and enrolment."
+      />
 
       <section className="py-12 sm:py-16" aria-labelledby="faq-heading">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
