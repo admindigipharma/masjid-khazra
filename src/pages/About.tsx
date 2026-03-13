@@ -4,8 +4,15 @@ export default function About() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-primary py-16 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden bg-primary py-16 sm:py-20">
+        <img
+          src="/images/mihrab-dome.jpg"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 h-full w-full object-cover opacity-15 mix-blend-luminosity"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/95 to-primary/80" aria-hidden="true" />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-3xl font-bold text-white sm:text-4xl lg:text-5xl">About Us</h1>
           <p className="mt-4 max-w-2xl text-lg text-white/80">
             The second largest masjid in Glasgow, serving our community with dedication and compassion for over five decades.
@@ -16,7 +23,7 @@ export default function About() {
       {/* History */}
       <section className="py-12 sm:py-16" aria-labelledby="history-heading">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
+          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div>
               <h2 id="history-heading" className="text-2xl font-semibold text-text sm:text-3xl">Our History</h2>
               <p className="mt-4 text-text-light leading-relaxed">
@@ -63,6 +70,19 @@ export default function About() {
                   </div>
                 </li>
               </ul>
+            </div>
+          </div>
+
+          {/* Photo Gallery */}
+          <div className="mt-12 grid grid-cols-2 gap-4 lg:grid-cols-4">
+            <div className="col-span-2 overflow-hidden rounded-xl">
+              <img src="/images/prayer-hall-wide.jpg" alt="Main prayer hall at Masjid-e-Khazra" className="h-64 w-full object-cover transition-transform duration-500 hover:scale-105" loading="lazy" />
+            </div>
+            <div className="overflow-hidden rounded-xl">
+              <img src="/images/dome-calligraphy.jpg" alt="Dome calligraphy inside the mosque" className="h-64 w-full object-cover transition-transform duration-500 hover:scale-105" loading="lazy" />
+            </div>
+            <div className="overflow-hidden rounded-xl">
+              <img src="/images/prayer-hall-congregation.jpg" alt="Worshippers gathered for prayer" className="h-64 w-full object-cover transition-transform duration-500 hover:scale-105" loading="lazy" />
             </div>
           </div>
         </div>
