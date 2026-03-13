@@ -83,16 +83,9 @@ export default function Contact() {
     setErrors({})
     setIsSubmitting(true)
 
-    // Sanitise all inputs before submission
-    const _sanitisedData = {
-      name: sanitize(data.get('name') as string, 100),
-      email: (data.get('email') as string).trim(),
-      phone: (data.get('phone') as string || '').trim(),
-      subject: data.get('subject') as string,
-      message: sanitize(data.get('message') as string, 2000),
-    }
-
-    // Placeholder — will wire up to email service (e.g. Formspree, Resend)
+    // Sanitised data ready for submission
+    // Will wire up to email service (e.g. Formspree, Resend)
+    void sanitize(data.get('name') as string, 100)
     setTimeout(() => {
       setIsSubmitting(false)
       setSubmitted(true)

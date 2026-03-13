@@ -8,9 +8,7 @@ import {
   Cross,
   Phone,
   BookOpen,
-  Calendar,
   Users,
-  Clock,
   Mail,
   ExternalLink,
   AlertTriangle,
@@ -208,7 +206,7 @@ export default function Services() {
             Weekly Gatherings &amp; Education
           </h2>
           <p className="mt-2 max-w-3xl text-text-light">
-            We offer a comprehensive programme of Islamic education, Qur'anic study, and community gatherings for all ages. Classes run throughout the week — everyone is welcome.
+            We offer a comprehensive programme of Islamic education, Qur&apos;anic study, and community gatherings for all ages. Classes run throughout the week — everyone is welcome.
           </p>
 
           {/* Pearls of Wisdom & Daily Dars highlights */}
@@ -257,7 +255,7 @@ export default function Services() {
                   </tr>
                   <tr className="border-t border-gray-100 bg-gray-50/50">
                     <td className="py-3 pl-5 pr-4 font-medium text-text align-top">Monday</td>
-                    <td className="py-3 pl-4 pr-5 text-text-light">Qur'an classes</td>
+                    <td className="py-3 pl-4 pr-5 text-text-light">Qur&apos;an classes</td>
                     <td className="hidden py-3 pl-4 pr-5 text-text-light sm:table-cell">After Maghrib / Isha</td>
                   </tr>
                   <tr className="border-t border-gray-100">
@@ -267,7 +265,7 @@ export default function Services() {
                   </tr>
                   <tr className="border-t border-gray-100">
                     <td className="py-3 pl-4 pr-5 text-text-light">
-                      Ladies Qur'an &amp; Fiqh
+                      Ladies Qur&apos;an &amp; Fiqh
                       <span className="ml-2 inline-block rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
                         Women's section
                       </span>
@@ -292,7 +290,7 @@ export default function Services() {
                   <tr className="border-t border-gray-100">
                     <td className="py-3 pl-5 pr-4 font-medium text-text align-top">Monthly</td>
                     <td className="py-3 pl-4 pr-5 text-text-light" colSpan={2}>
-                      Gayarwi Shareef — Qur'anic recitation, nasheed, and talks
+                      Gayarwi Shareef — Qur&apos;anic recitation, nasheed, and talks
                     </td>
                   </tr>
                 </tbody>
@@ -314,11 +312,11 @@ export default function Services() {
               {[
                 {
                   title: 'Evening Madrassa',
-                  desc: 'Regular evening classes for children covering Qur'an reading, Islamic studies, and basic Arabic.',
+                  desc: 'Regular evening classes for children covering Qur&apos;an reading, Islamic studies, and basic Arabic.',
                 },
                 {
                   title: 'Hifz Classes',
-                  desc: 'Dedicated Qur'an memorisation programme for committed students.',
+                  desc: 'Dedicated Qur&apos;an memorisation programme for committed students.',
                 },
                 {
                   title: 'iSyllabus for Schools',
@@ -326,7 +324,7 @@ export default function Services() {
                 },
                 {
                   title: 'Girls Saturday School',
-                  desc: 'Weekly Saturday classes for girls, covering Qur'an, Islamic studies, and faith development.',
+                  desc: 'Weekly Saturday classes for girls, covering Qur&apos;an, Islamic studies, and faith development.',
                 },
                 {
                   title: 'Weekend Islamic Scholarship',
