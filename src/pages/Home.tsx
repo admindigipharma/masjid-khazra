@@ -1,21 +1,46 @@
 import { Link } from 'react-router-dom'
-import { Clock, Heart, Users, BookOpen, Star, Shield, HandHeart } from 'lucide-react'
+import { Clock, Heart, Users, BookOpen, Star, Shield, HandHeart, MapPin } from 'lucide-react'
+import prayerData from '../data/prayer-times.json'
 
-const prayerTimes = [
-  { name: 'Fajr', start: '4:35 AM', jamaat: '6:00 AM' },
-  { name: 'Zuhr', start: '12:32 PM', jamaat: '1:00 PM' },
-  { name: 'Asr', start: '4:13 PM', jamaat: '4:39 PM' },
-  { name: 'Maghrib', start: '6:20 PM', jamaat: '6:20 PM' },
-  { name: 'Isha', start: '7:59 PM', jamaat: '8:30 PM' },
-  { name: 'Jummah', start: '12:30 PM', jamaat: '1:10 PM' },
-]
+interface PrayerTime { begins: string; iqamah: string }
+interface DayData { date: number; day: string; fajr: PrayerTime; sunrise: string; zuhr: PrayerTime; asr: PrayerTime; maghrib: PrayerTime; isha: PrayerTime }
+
+function getTodayPrayers() {
+  const now = new Date()
+  const month = String(now.getMonth() + 1)
+  const day = now.getDate()
+  const monthData = (prayerData.months as Record<string, DayData[]>)[month]
+  if (!monthData) return null
+  return monthData.find((d) => d.date === day) || null
+}
+
+function buildPrayerList(today: DayData | null) {
+  if (!today) return [
+    { name: 'Fajr', start: '—', jamaat: '—' },
+    { name: 'Zuhr', start: '—', jamaat: '—' },
+    { name: 'Asr', start: '—', jamaat: '—' },
+    { name: 'Maghrib', start: '—', jamaat: '—' },
+    { name: 'Isha', start: '—', jamaat: '—' },
+    { name: 'Jummah', start: '12:30 PM', jamaat: '1:10 PM' },
+  ]
+  return [
+    { name: 'Fajr', start: today.fajr.begins, jamaat: today.fajr.iqamah },
+    { name: 'Zuhr', start: today.zuhr.begins, jamaat: today.zuhr.iqamah },
+    { name: 'Asr', start: today.asr.begins, jamaat: today.asr.iqamah },
+    { name: 'Maghrib', start: today.maghrib.begins, jamaat: today.maghrib.iqamah },
+    { name: 'Isha', start: today.isha.begins, jamaat: today.isha.iqamah },
+    { name: 'Jummah', start: '12:30 PM', jamaat: '1:10 PM' },
+  ]
+}
 
 export default function Home() {
+  const today = getTodayPrayers()
+  const prayerTimes = buildPrayerList(today)
+
   return (
     <>
       {/* Hero */}
       <section className="relative overflow-hidden bg-primary py-20 sm:py-28 lg:py-36">
-        {/* Decorative geometric pattern */}
         <div className="absolute inset-0 opacity-[0.07]" aria-hidden="true">
           <div className="absolute -right-20 -top-20 h-96 w-96 rounded-full bg-white/20 blur-3xl" />
           <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-accent/30 blur-3xl" />
@@ -29,7 +54,11 @@ export default function Home() {
               Welcome to<br />
               <span className="text-accent">Masjid-e-Khazra</span>
             </h1>
-            <p className="mt-5 text-lg leading-relaxed text-white/80 sm:text-xl">
+            <p className="mt-4 text-base text-white/70">
+              <MapPin size={14} className="inline -mt-0.5 mr-1" aria-hidden="true" />
+              138-140 Butterbiggins Road, Glasgow G42 7AF
+            </p>
+            <p className="mt-3 text-lg leading-relaxed text-white/80 sm:text-xl">
               A focal point for Glasgow's Muslim community. One of Scotland's leading mosques, serving worship, education, and community care.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
@@ -39,12 +68,14 @@ export default function Home() {
               >
                 Support Your Masjid
               </Link>
-              <Link
-                to="/about"
+              <a
+                href="https://maps.google.com/?q=138-140+Butterbiggins+Road+Glasgow+G42+7AF"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="cursor-pointer rounded-lg border-2 border-white/30 px-7 py-3.5 text-base font-semibold text-white backdrop-blur-sm transition-all hover:border-white hover:bg-white/10 hover:-translate-y-0.5 focus:outline-2 focus:outline-offset-2 focus:outline-white"
               >
-                Learn More
-              </Link>
+                Get Directions
+              </a>
             </div>
           </div>
         </div>
