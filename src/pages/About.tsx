@@ -1,4 +1,4 @@
-import { MapPin, Calendar, Users, Building } from 'lucide-react'
+import { MapPin, Calendar, Building } from 'lucide-react'
 
 export default function About() {
   return (
@@ -60,13 +60,6 @@ export default function About() {
                   <div>
                     <span className="block text-sm font-medium text-text">Size</span>
                     <span className="text-sm text-text-light">Second largest masjid in Glasgow</span>
-                  </div>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Users size={20} className="mt-0.5 text-primary shrink-0" aria-hidden="true" />
-                  <div>
-                    <span className="block text-sm font-medium text-text">Community</span>
-                    <span className="text-sm text-text-light">Thousands of worshippers and families</span>
                   </div>
                 </li>
               </ul>
