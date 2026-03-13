@@ -21,6 +21,8 @@ export default function Footer() {
                 { to: '/prayer-times', label: 'Prayer Times' },
                 { to: '/funerals', label: 'Funeral Services' },
                 { to: '/services', label: 'Services' },
+                { to: '/islamic-diploma', label: 'Islamic Diploma' },
+                { to: '/faq', label: 'FAQ' },
                 { to: '/charity', label: 'News' },
                 { to: '/donate', label: 'Donate' },
                 { to: '/contact', label: 'Contact' },
@@ -114,6 +116,26 @@ export default function Footer() {
               </a>
             </div>
           </div>
+        </div>
+
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-4 rounded-lg bg-white/5 px-6 py-4">
+          <span className="text-sm font-medium text-white/80">Get the MyMasjid App:</span>
+          <a
+            href="https://play.google.com/store/apps/details?id=com.teo.mymasjid"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="cursor-pointer rounded-md bg-white/10 px-4 py-2 text-xs font-medium text-white transition-colors hover:bg-white/20"
+          >
+            Android
+          </a>
+          <a
+            href="https://apps.apple.com/us/app/my-masjid-community/id1452575134"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="cursor-pointer rounded-md bg-white/10 px-4 py-2 text-xs font-medium text-white transition-colors hover:bg-white/20"
+          >
+            iPhone
+          </a>
         </div>
 
         <div className="mt-10 border-t border-white/10 pt-6 text-center text-xs text-white/50">
