@@ -102,72 +102,87 @@ export default function About() {
             Our dedicated team of scholars, volunteers, and committee members serve the community.
           </p>
 
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {/* Imam */}
-            <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary font-bold text-lg" aria-hidden="true">
-                AR
+          {/* Imams */}
+          <h3 className="mt-8 text-lg font-semibold text-text">Imams & Religious Advisors</h3>
+          <div className="mt-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              { initials: 'MR', name: 'Allamah Mohammed Rizwan', role: 'Head Imam' },
+              { initials: 'MH', name: 'Imam Mazher Hussain', role: 'Imam' },
+              { initials: 'AC', name: 'Imam Amin Chisti', role: 'Imam' },
+            ].map((person) => (
+              <div key={person.name} className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary font-bold text-lg" aria-hidden="true">
+                  {person.initials}
+                </div>
+                <h4 className="mt-4 text-lg font-semibold text-text">{person.name}</h4>
+                <p className="text-sm font-medium text-primary">{person.role}</p>
               </div>
-              <h3 className="mt-4 text-lg font-semibold text-text">Allamah Mohammed Rizwan</h3>
-              <p className="text-sm font-medium text-primary">Head Imam</p>
-              <p className="mt-2 text-sm text-text-light">
-                Leading daily prayers, Jummah khutbahs, and religious guidance for the community.
-              </p>
-            </div>
+            ))}
+          </div>
 
-            {/* Funeral Director 1 */}
+          {/* Funeral Directors */}
+          <h3 className="mt-10 text-lg font-semibold text-text">Funeral Directors</h3>
+          <div className="mt-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary font-bold text-lg" aria-hidden="true">
                 TB
               </div>
-              <h3 className="mt-4 text-lg font-semibold text-text">Tahir Bashir</h3>
+              <h4 className="mt-4 text-lg font-semibold text-text">Tahir Bashir</h4>
               <p className="text-sm font-medium text-primary">Funeral Director</p>
-              <p className="mt-2 text-sm text-text-light">
-                Coordinating funeral services and supporting bereaved families across Glasgow.
-              </p>
-              <a href="tel:07980900882" className="mt-3 inline-block cursor-pointer text-sm font-medium text-primary hover:underline">
+              <a href="tel:07980900882" className="mt-2 inline-block cursor-pointer text-sm font-medium text-primary hover:underline">
                 07980 900 882
               </a>
             </div>
-
-            {/* Funeral Director 2 */}
             <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary font-bold text-lg" aria-hidden="true">
                 AM
               </div>
-              <h3 className="mt-4 text-lg font-semibold text-text">Amir Mushtaq</h3>
+              <h4 className="mt-4 text-lg font-semibold text-text">Amir Mushtaq</h4>
               <p className="text-sm font-medium text-primary">Funeral Director</p>
-              <p className="mt-2 text-sm text-text-light">
-                BSc (Hons) MCOptom. Funeral services coordination and community outreach.
-              </p>
-              <a href="tel:07508766843" className="mt-3 inline-block cursor-pointer text-sm font-medium text-primary hover:underline">
+              <p className="mt-1 text-xs text-text-light">BSc (Hons) MCOptom</p>
+              <a href="tel:07508766843" className="mt-2 inline-block cursor-pointer text-sm font-medium text-primary hover:underline">
                 07508 766 843
               </a>
             </div>
           </div>
 
-          {/* Committee */}
-          <div className="mt-10">
-            <h3 className="text-lg font-semibold text-text">Mosque Committee</h3>
-            <p className="mt-2 text-sm text-text-light">
-              The mosque is managed by a dedicated committee of community volunteers who oversee operations,
-              maintenance, and strategic direction.
-            </p>
-            <div className="mt-4 flex flex-wrap gap-3">
-              {[
-                'Sabir Sarwar',
-              ].map((name) => (
-                <span
-                  key={name}
-                  className="inline-flex items-center rounded-full bg-primary/5 px-4 py-2 text-sm font-medium text-text"
-                >
-                  {name}
-                </span>
-              ))}
-              <span className="inline-flex items-center rounded-full border border-dashed border-gray-300 px-4 py-2 text-sm text-text-light">
-                Additional members to be confirmed
+          {/* Trustees */}
+          <h3 className="mt-10 text-lg font-semibold text-text">Trustees</h3>
+          <div className="mt-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+            {[
+              { name: 'Muhammad Akram', role: 'Chairman' },
+              { name: 'Muhammad Sarwar', role: 'General Secretary' },
+              { name: 'Abdul Wahab', role: 'Treasurer' },
+              { name: 'Mohammed Azeem', role: 'Trustee' },
+              { name: 'Mahboob Elahi', role: 'Trustee' },
+            ].map((person) => (
+              <div key={person.name} className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent/10 text-accent font-bold text-sm" aria-hidden="true">
+                  {person.name.split(' ').map(n => n[0]).join('')}
+                </div>
+                <h4 className="mt-3 font-semibold text-text">{person.name}</h4>
+                <p className="text-xs font-medium text-primary">{person.role}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Committee Members */}
+          <h3 className="mt-10 text-lg font-semibold text-text">Committee Members</h3>
+          <div className="mt-4 flex flex-wrap gap-3">
+            {[
+              'Maqsood Ahmed',
+              'Khurshid Anwar',
+              'Tahir Bashir',
+              'Mohammed Javed',
+              'Sabir Sarwar',
+            ].map((name) => (
+              <span
+                key={name}
+                className="inline-flex items-center rounded-full bg-primary/5 px-4 py-2 text-sm font-medium text-text"
+              >
+                {name}
               </span>
-            </div>
+            ))}
           </div>
         </div>
       </section>
