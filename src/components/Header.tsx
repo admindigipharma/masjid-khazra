@@ -56,18 +56,28 @@ export default function Header() {
               <ChevronDown size={14} className={`transition-transform ${aboutOpen ? 'rotate-180' : ''}`} aria-hidden="true" />
             </button>
             {aboutOpen && (
-              <div className="absolute left-0 top-full mt-1 w-48 rounded-lg border border-gray-100 bg-white py-1 shadow-lg" role="menu">
-                {aboutLinks.map((link) => (
-                  <Link
-                    key={link.to}
-                    to={link.to}
-                    onClick={() => setAboutOpen(false)}
-                    className="block cursor-pointer px-4 py-2 text-sm text-text transition-colors hover:bg-primary/5 hover:text-primary"
-                    role="menuitem"
-                  >
-                    {link.label}
-                  </Link>
-                ))}
+              <div className="absolute left-0 top-full w-48 pt-2" role="presentation">
+                <div className="rounded-lg border border-gray-100 bg-white py-1 shadow-lg" role="menu">
+                  {aboutLinks.map((link) => (
+                    <Link
+                      key={link.to}
+                      to={link.to}
+                      onClick={() => {
+                        setAboutOpen(false)
+                        const hash = link.to.split('#')[1]
+                        if (hash) {
+                          setTimeout(() => {
+                            document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth' })
+                          }, 100)
+                        }
+                      }}
+                      className="block cursor-pointer px-4 py-2 text-sm text-text transition-colors hover:bg-primary/5 hover:text-primary"
+                      role="menuitem"
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
               </div>
             )}
           </div>
@@ -106,18 +116,20 @@ export default function Header() {
               <ChevronDown size={14} className={`transition-transform ${servicesOpen ? 'rotate-180' : ''}`} aria-hidden="true" />
             </button>
             {servicesOpen && (
-              <div className="absolute left-0 top-full mt-1 w-48 rounded-lg border border-gray-100 bg-white py-1 shadow-lg" role="menu">
-                {serviceLinks.map((link) => (
-                  <Link
-                    key={link.to}
-                    to={link.to}
-                    onClick={() => setServicesOpen(false)}
-                    className="block cursor-pointer px-4 py-2 text-sm text-text transition-colors hover:bg-primary/5 hover:text-primary"
-                    role="menuitem"
-                  >
-                    {link.label}
-                  </Link>
-                ))}
+              <div className="absolute left-0 top-full w-48 pt-2" role="presentation">
+                <div className="rounded-lg border border-gray-100 bg-white py-1 shadow-lg" role="menu">
+                  {serviceLinks.map((link) => (
+                    <Link
+                      key={link.to}
+                      to={link.to}
+                      onClick={() => setServicesOpen(false)}
+                      className="block cursor-pointer px-4 py-2 text-sm text-text transition-colors hover:bg-primary/5 hover:text-primary"
+                      role="menuitem"
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
               </div>
             )}
           </div>
