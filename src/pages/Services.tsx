@@ -13,19 +13,15 @@ import {
   ExternalLink,
   AlertTriangle,
 } from 'lucide-react'
+import HeroSection from '../components/HeroSection'
 
 export default function Services() {
   return (
     <>
-      {/* Hero */}
-      <section className="bg-primary py-16 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold text-white sm:text-4xl lg:text-5xl">Our Services</h1>
-          <p className="mt-4 max-w-2xl text-lg text-white/80">
-            From funeral services to education and marriage — we provide a range of services to support our community's spiritual, educational, and social needs.
-          </p>
-        </div>
-      </section>
+      <HeroSection
+        title="Our Services"
+        subtitle="From funeral services to education and marriage — we provide a range of services to support our community's spiritual, educational, and social needs."
+      />
 
       {/* Funeral Services Card */}
       <section className="py-12 sm:py-16" aria-labelledby="funeral-card-heading">
