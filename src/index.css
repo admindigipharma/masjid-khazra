@@ -70,6 +70,22 @@
     }
   }
 
+  /* Print styles — only show timetable */
+  @media print {
+    header, footer, nav, .pulse-cta, canvas {
+      display: none !important;
+    }
+    body {
+      background: white;
+    }
+    section {
+      padding: 0 !important;
+    }
+    table {
+      font-size: 10px;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     html {
       scroll-behavior: auto;
