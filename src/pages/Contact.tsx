@@ -1,6 +1,7 @@
 import { useState, useRef, type FormEvent } from 'react'
 import { Phone, Mail, MapPin, Clock, AlertCircle } from 'lucide-react'
 import { sanitize, isValidEmail, isValidPhone, checkRateLimit } from '../lib/form-security'
+import HeroSection from '../components/HeroSection'
 
 interface FormErrors {
   name?: string
@@ -96,15 +97,10 @@ export default function Contact() {
 
   return (
     <>
-      {/* Hero */}
-      <section className="bg-primary py-16 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold text-white sm:text-4xl lg:text-5xl">Contact Us</h1>
-          <p className="mt-4 max-w-2xl text-lg text-white/80">
-            We'd love to hear from you. Whether you have a question, need to arrange a service, or want to get involved — reach out.
-          </p>
-        </div>
-      </section>
+      <HeroSection
+        title="Contact Us"
+        subtitle="We'd love to hear from you. Whether you have a question, need to arrange a service, or want to get involved — reach out."
+      />
 
       <section className="py-12 sm:py-16" aria-labelledby="contact-heading">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
