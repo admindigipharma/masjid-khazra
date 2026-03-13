@@ -1,4 +1,4 @@
-import { Heart, Shield, Repeat, Gift, Building2 } from 'lucide-react'
+import { Heart, Shield, Repeat, Gift, Building2, Mail } from 'lucide-react'
 
 const MYDONA_URL = 'https://donate.mydona.com/masjid-e-khazra'
 
@@ -118,9 +118,30 @@ export default function Donate() {
             ))}
           </div>
 
-          <p className="mt-4 text-xs text-text-light">
-            Cheques payable to "Masjid-e-Khazra" can be posted to 138-140 Butterbiggins Road, Glasgow G42 7AF.
+        </div>
+      </section>
+
+      {/* Cheque / Postal Order */}
+      <section className="py-12 sm:py-16" aria-labelledby="cheque-heading">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center gap-3 mb-2">
+            <Mail size={24} className="text-primary" aria-hidden="true" />
+            <h2 id="cheque-heading" className="text-2xl font-semibold text-text sm:text-3xl">
+              Cheque / Postal Order
+            </h2>
+          </div>
+          <p className="mt-2 text-text-light">
+            You can also donate by cheque or postal order sent through the post.
           </p>
+
+          <div className="mt-6 rounded-xl border border-gray-200 bg-white p-5">
+            <p className="text-sm text-text-light">Make cheques payable to:</p>
+            <p className="mt-1 text-base font-semibold text-text">Masjid-e-Khazra</p>
+            <p className="mt-4 text-sm text-text-light">Post to:</p>
+            <p className="mt-1 text-base font-semibold text-text">
+              Masjid-e-Khazra, 138-140 Butterbiggins Road, Glasgow, G42 7AF
+            </p>
+          </div>
         </div>
       </section>
 
