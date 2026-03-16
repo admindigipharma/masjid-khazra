@@ -15,7 +15,7 @@ export default function About() {
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-3xl font-bold text-white sm:text-4xl lg:text-5xl">About Us</h1>
           <p className="mt-4 max-w-2xl text-lg text-white/80">
-            The second largest masjid in Glasgow, serving our community with dedication and compassion for over five decades.
+            One of the largest masjids in Glasgow, serving our community with dedication and compassion for over five decades.
           </p>
         </div>
       </section>
@@ -32,7 +32,7 @@ export default function About() {
                 community — providing a space for worship, education, and community gathering for over fifty years.
               </p>
               <p className="mt-4 text-text-light leading-relaxed">
-                As the second largest masjid in Glasgow, we serve thousands of worshippers and community members.
+                As one of the largest masjids in Glasgow, we serve thousands of worshippers and community members.
                 Our doors are open for daily prayers, Jummah, Eid celebrations, religious education, community
                 events, and welfare services.
               </p>
@@ -59,7 +59,7 @@ export default function About() {
                   <Building size={20} className="mt-0.5 text-primary shrink-0" aria-hidden="true" />
                   <div>
                     <span className="block text-sm font-medium text-text">Size</span>
-                    <span className="text-sm text-text-light">Second largest masjid in Glasgow</span>
+                    <span className="text-sm text-text-light">One of the largest masjids in Glasgow</span>
                   </div>
                 </li>
               </ul>
@@ -129,8 +129,8 @@ export default function About() {
           <h3 className="mt-8 text-lg font-semibold text-text">Imams & Religious Advisors</h3>
           <div className="mt-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {[
-              { initials: 'MH', name: 'Imam Mazher Hussain', role: 'Head Imam' },
               { initials: 'MR', name: 'Allamah Mohammed Rizwan', role: 'Imam' },
+              { initials: 'MH', name: 'Imam Mazher Hussain', role: 'Imam' },
               { initials: 'AC', name: 'Imam Amin Chisti', role: 'Imam' },
             ].map((person) => (
               <div key={person.name} className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
@@ -162,7 +162,6 @@ export default function About() {
               </div>
               <h4 className="mt-4 text-lg font-semibold text-text">Amir Mushtaq</h4>
               <p className="text-sm font-medium text-primary">Funeral Director</p>
-              <p className="mt-1 text-xs text-text-light">BSc (Hons) MCOptom</p>
               <a href="tel:07508766843" className="mt-2 inline-block cursor-pointer text-sm font-medium text-primary hover:underline">
                 07508 766 843
               </a>
@@ -197,6 +196,7 @@ export default function About() {
               'Khurshid Anwar',
               'Tahir Bashir',
               'Mohammed Javed',
+              'Mohammed Khalid',
               'Sabir Sarwar',
             ].map((name) => (
               <span
