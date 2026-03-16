@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #0B6B3A;
-  --color-primary-light: #0E8A4A;
-  --color-primary-dark: #08522D;
-  --color-cta: #4CAF50;
-  --color-cta-hover: #43A047;
-  --color-accent: #F89D35;
-  --color-accent-hover: #E88D25;
+  --color-primary: #065F46;
+  --color-primary-light: #047857;
+  --color-primary-dark: #064E3B;
+  --color-cta: #059669;
+  --color-cta-hover: #047857;
+  --color-accent: #D4A843;
+  --color-accent-hover: #B8922E;
   --color-text: #1A1A2E;
   --color-text-light: #555555;
   --color-bg: #FAFAF7;
@@ -52,20 +52,20 @@
 
   @keyframes pulse-glow {
     0%, 100% {
-      box-shadow: 0 0 0 0 rgba(248, 157, 53, 0.4);
+      box-shadow: 0 0 0 0 rgba(212, 168, 67, 0.4);
     }
     50% {
-      box-shadow: 0 0 20px 4px rgba(248, 157, 53, 0.3);
+      box-shadow: 0 0 20px 4px rgba(212, 168, 67, 0.3);
     }
   }
 
   @keyframes pulse-border {
     0%, 100% {
-      box-shadow: 0 0 0 0 rgba(248, 157, 53, 0.5);
+      box-shadow: 0 0 0 0 rgba(212, 168, 67, 0.5);
       opacity: 1;
     }
     50% {
-      box-shadow: 0 0 0 8px rgba(248, 157, 53, 0);
+      box-shadow: 0 0 0 8px rgba(212, 168, 67, 0);
       opacity: 0;
     }
   }
@@ -84,6 +84,12 @@
     table {
       font-size: 10px;
     }
+  }
+
+  /* Islamic geometric pattern for light sections */
+  .islamic-pattern {
+    background-color: #FFFFFF;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%23D4A843' fill-opacity='0.06'%3E%3Cpath d='M40 0L20 20h40L40 0zm0 80L20 60h40L40 80zM0 40l20-20v40L0 40zm80 0L60 20v40l20-20z'/%3E%3Cpath d='M40 28l-12 12 12 12 12-12-12-12z'/%3E%3C/g%3E%3C/svg%3E");
   }
 
   @media (prefers-reduced-motion: reduce) {

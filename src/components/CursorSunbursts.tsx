@@ -25,7 +25,7 @@ export default function CursorSunbursts() {
   const activeRef = useRef(true)
 
   const ORB_COUNT = 5
-  const ACCENT = { r: 248, g: 157, b: 53 } // --color-accent #F89D35
+  const ACCENT = { r: 212, g: 168, b: 67 } // --color-accent #D4A843
 
   const initOrbs = useCallback(() => {
     const orbs: Orb[] = []
