@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Clock, Smartphone, MessageCircle, ChevronLeft, ChevronRight, Printer } from 'lucide-react'
+import { Clock, Smartphone, MessageCircle, ChevronLeft, ChevronRight, Printer, Compass } from 'lucide-react'
 import prayerData from '../data/prayer-times.json'
 import HeroSection from '../components/HeroSection'
 
@@ -90,6 +90,7 @@ export default function PrayerTimes() {
                     { name: 'Asr', begins: today.asr.begins, iqamah: today.asr.iqamah },
                     { name: 'Maghrib', begins: today.maghrib.begins, iqamah: today.maghrib.iqamah },
                     { name: 'Isha', begins: today.isha.begins, iqamah: today.isha.iqamah },
+                    { name: 'Juma', begins: '12:30', iqamah: '1:10' },
                   ].map((prayer, i) => (
                     <tr key={prayer.name} className={`border-t border-gray-100 ${i % 2 === 1 ? 'bg-gray-50/50' : ''}`}>
                       <td className="py-4 pl-5 pr-4 font-medium text-text">{prayer.name}</td>
@@ -227,7 +228,7 @@ export default function PrayerTimes() {
           <h2 id="updated-heading" className="text-2xl font-semibold text-text sm:text-3xl">
             Never Miss a Prayer
           </h2>
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 max-w-2xl">
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-4xl">
             <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
               <div className="flex items-start gap-4">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary" aria-hidden="true">
@@ -272,6 +273,22 @@ export default function PrayerTimes() {
                 <h3 className="font-semibold text-text">WhatsApp Channel</h3>
                 <p className="mt-1 text-sm text-text-light">
                   Join our WhatsApp channel for daily prayer times and community announcements.
+                </p>
+              </div>
+            </a>
+            <a
+              href="https://qiblafinder.withgoogle.com/intl/en/onboarding"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-start gap-4 cursor-pointer rounded-xl border border-gray-200 bg-white p-5 shadow-sm transition-all hover:border-primary/30 hover:shadow-md"
+            >
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent" aria-hidden="true">
+                <Compass size={20} />
+              </div>
+              <div>
+                <h3 className="font-semibold text-text">Qibla Finder</h3>
+                <p className="mt-1 text-sm text-text-light">
+                  Find the direction of the Qibla from anywhere using Google's Qibla Finder on your phone.
                 </p>
               </div>
             </a>
