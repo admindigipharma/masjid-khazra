@@ -10,8 +10,10 @@ const aboutLinks = [
 
 const serviceLinks = [
   { to: '/funerals', label: 'Funeral Services' },
+  { to: '/services#marriage', label: 'Marriage Services' },
+  { to: '/services#visits', label: 'Visits & Tours' },
+  { to: '/services#education', label: 'Education & Classes' },
   { to: '/services', label: 'All Services' },
-  { to: '/islamic-diploma', label: 'Islamic Diploma' },
 ]
 
 
@@ -133,7 +135,17 @@ export default function Header() {
                     <Link
                       key={link.to}
                       to={link.to}
-                      onClick={() => setServicesOpen(false)}
+                      onClick={() => {
+                        setServicesOpen(false)
+                        const hash = link.to.split('#')[1]
+                        if (hash) {
+                          setTimeout(() => {
+                            document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth' })
+                          }, 100)
+                        } else {
+                          window.scrollTo({ top: 0, behavior: 'smooth' })
+                        }
+                      }}
                       className="block cursor-pointer px-4 py-2 text-sm text-text transition-colors hover:bg-primary/5 hover:text-primary"
                       role="menuitem"
                     >
@@ -199,7 +211,6 @@ export default function Header() {
             { to: '/charity', label: 'News' },
             { to: '/funerals', label: 'Funeral Services' },
             { to: '/services', label: 'All Services' },
-            { to: '/islamic-diploma', label: 'Islamic Diploma' },
             { to: '/faq', label: 'FAQ' },
             { to: '/contact', label: 'Contact' },
           ].map((link) => (
