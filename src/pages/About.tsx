@@ -31,11 +31,6 @@ export default function About() {
                 Located on Glasgow's southside at Butterbiggins Road, we have been a focal point for the Muslim
                 community — providing a space for worship, education, and community gathering for over fifty years.
               </p>
-              <p className="mt-4 text-text-light leading-relaxed">
-                As one of the largest masjids in Glasgow, we serve thousands of worshippers and community members.
-                Our doors are open for daily prayers, Jummah, Eid celebrations, religious education, community
-                events, and welfare services.
-              </p>
             </div>
 
             <div className="rounded-xl bg-white p-6 shadow-sm border border-gray-200">
