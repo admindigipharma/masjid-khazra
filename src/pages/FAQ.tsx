@@ -3,6 +3,40 @@ import { ChevronDown } from 'lucide-react'
 import HeroSection from '../components/HeroSection'
 
 const faqs = [
+  // General
+  {
+    q: 'What are the opening hours of the mosque?',
+    a: 'The mosque is open daily for all five prayers. The mosque is accessible from early morning (Fajr) through to after the last prayer (Isha). Please check the prayer timetable for specific times.',
+  },
+  {
+    q: 'Where is Masjid-e-Khazra located?',
+    a: 'Our main mosque is at 138-140 Butterbiggins Road, Glasgow G42 7AF. We also have a branch at 69 Albert Road, Glasgow G42 8DP.',
+  },
+  {
+    q: 'Can I visit the mosque if I am not Muslim?',
+    a: 'Yes, we welcome visitors of all faiths and backgrounds. We offer guided tours — please contact us in advance to arrange a visit. We ask visitors to dress modestly and remove shoes before entering the prayer hall.',
+  },
+  {
+    q: 'How do I arrange a funeral?',
+    a: 'Contact our Funeral Directors: Tahir Bashir on 07980 900 882, Amir Mushtaq on 07508 766 843, or the office on 0141 422 1154 (Option 2). Our funeral service is free and run entirely by volunteers.',
+  },
+  {
+    q: 'How do I book the mosque for a Nikah (marriage)?',
+    a: 'Contact us on 0141 422 1154 or speak with Haji Mohammed Akram on 07871 206 102. Please note that the Imam requires a Marriage Schedule from the registrar before solemnising any marriage.',
+  },
+  {
+    q: 'How can I donate to the mosque?',
+    a: 'You can donate online via MyDona, by bank transfer, or by cheque/postal order. Visit our Donate page for full details including bank account numbers for specific causes.',
+  },
+  {
+    q: 'Does the mosque have parking?',
+    a: 'Street parking is available on Butterbiggins Road and surrounding streets. On busy days such as Friday (Juma) prayer, we recommend arriving early.',
+  },
+  {
+    q: 'Is the mosque accessible for disabled visitors?',
+    a: 'Yes, the mosque has elevator access to all floors and disabled toilet facilities.',
+  },
+  // Madrassa
   {
     q: 'What is the process of registration for madrassa?',
     a: 'Parents are advised to attend during madrassa classes and one of the administration will guide you through the process, completing a registration form. Alternatively, forms can be collected from the main office, imam\'s office, or management staff.',
@@ -48,7 +82,7 @@ export default function FAQ() {
     <>
       <HeroSection
         title="Frequently Asked Questions"
-        subtitle="Common questions about our madrassa, classes, and enrolment."
+        subtitle="Common questions about the mosque, our services, madrassa, and enrolment."
         startIndex={3}
       />
 
