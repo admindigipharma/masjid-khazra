@@ -52,7 +52,7 @@ export default function Services() {
           <div className="grid gap-8 lg:grid-cols-2">
 
             {/* Marriage Services */}
-            <article className="rounded-xl border border-gray-200 bg-white p-6 sm:p-8">
+            <article id="marriage" className="rounded-xl border border-gray-200 bg-white p-6 sm:p-8 scroll-mt-24">
               <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary" aria-hidden="true">
                 <Heart size={24} />
               </div>
@@ -121,7 +121,7 @@ export default function Services() {
             </article>
 
             {/* Visits & Tours */}
-            <article className="rounded-xl border border-gray-200 bg-white p-6 sm:p-8">
+            <article id="visits" className="rounded-xl border border-gray-200 bg-white p-6 sm:p-8 scroll-mt-24">
               <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary" aria-hidden="true">
                 <Eye size={24} />
               </div>
@@ -194,7 +194,7 @@ export default function Services() {
       </section>
 
       {/* Education & Weekly Gatherings — Featured Section */}
-      <section className="bg-white py-12 sm:py-16" aria-labelledby="education-heading">
+      <section id="education" className="bg-white py-12 sm:py-16 scroll-mt-24" aria-labelledby="education-heading">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-14 w-14 items-center justify-center rounded-lg bg-primary/10 text-primary" aria-hidden="true">
             <GraduationCap size={28} />
