@@ -21,7 +21,6 @@ export default function Footer() {
                 { to: '/prayer-times', label: 'Prayer Times' },
                 { to: '/funerals', label: 'Funeral Services' },
                 { to: '/services', label: 'Services' },
-                { to: '/islamic-diploma', label: 'Islamic Diploma' },
                 { to: '/faq', label: 'FAQ' },
                 { to: '/charity', label: 'News' },
                 { to: '/donate', label: 'Donate' },
@@ -45,6 +44,10 @@ export default function Footer() {
               <li className="flex items-start gap-2 text-sm text-white/70">
                 <MapPin size={16} className="mt-0.5 shrink-0" aria-hidden="true" />
                 <span>138-140 Butterbiggins Road,<br />Glasgow G42 7AF</span>
+              </li>
+              <li className="flex items-start gap-2 text-sm text-white/70">
+                <MapPin size={16} className="mt-0.5 shrink-0" aria-hidden="true" />
+                <span>69 Albert Road,<br />Glasgow G42 8DP</span>
               </li>
               <li>
                 <a
@@ -140,7 +143,7 @@ export default function Footer() {
 
         <div className="mt-10 border-t border-white/10 pt-6 text-center text-xs text-white/50">
           <p>&copy; {new Date().getFullYear()} Masjid-e-Khazra. All rights reserved.</p>
-          <p className="mt-1">Scottish Charity (Registration TBC)</p>
+          <p className="mt-1">Scottish Charity SC010303</p>
         </div>
       </div>
     </footer>
