@@ -58,7 +58,7 @@ export default function Services() {
               </div>
               <h3 className="mt-4 text-xl font-semibold text-text">Marriage Services</h3>
               <p className="mt-3 text-text-light leading-relaxed">
-                We offer Nikah (Islamic marriage) solemnisation services at the mosque or at an appointed venue with the Imam. Our Imam will guide you through the process and ensure all religious requirements are fulfilled.
+                We offer Nikah solemnisation services at the mosque or at an appointed venue with the Imam. Our Imam will guide you through the process and ensure all religious requirements are fulfilled.
               </p>
 
               <div className="mt-6 rounded-lg border border-primary/20 bg-primary/5 p-4">
