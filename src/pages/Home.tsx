@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Clock, Heart, Users, BookOpen, Star, Shield, HandHeart, MapPin } from 'lucide-react'
+import { Clock, Heart, Users, BookOpen, Star, Shield, HandHeart } from 'lucide-react'
 import prayerData from '../data/prayer-times.json'
 
 interface PrayerTime { begins: string; iqamah: string }
@@ -57,11 +57,7 @@ export default function Home() {
               Welcome to<br />
               <span className="text-accent">Masjid-e-Khazra</span>
             </h1>
-            <p className="mt-4 text-base text-white/70">
-              <MapPin size={14} className="inline -mt-0.5 mr-1" aria-hidden="true" />
-              138-140 Butterbiggins Road, Glasgow G42 7AF
-            </p>
-            <p className="mt-3 text-lg leading-relaxed text-white/80 sm:text-xl">
+            <p className="mt-4 text-lg leading-relaxed text-white/80 sm:text-xl">
               A focal point for Glasgow's Muslim community. One of Scotland's leading mosques, serving worship, education, and community care.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
@@ -102,7 +98,7 @@ export default function Home() {
             </div>
             <div className="flex items-center gap-3">
               <Users size={20} className="shrink-0 text-primary" aria-hidden="true" />
-              <span className="text-sm font-medium text-text">2nd Largest in Glasgow</span>
+              <span className="text-sm font-medium text-text">One of the Largest in Glasgow</span>
             </div>
           </div>
         </div>
@@ -140,7 +136,7 @@ export default function Home() {
             </table>
           </div>
           <p className="mt-4 text-xs text-text-light">
-            Times are approximate. Please check the MyMasjid app or WhatsApp broadcast for daily updates.
+            Please check the MyMasjid app or WhatsApp broadcast for daily updates.
           </p>
         </div>
       </section>
@@ -253,7 +249,7 @@ export default function Home() {
                   <span className="mt-1 block text-sm text-text-light">Families Supported</span>
                 </div>
                 <div className="rounded-xl bg-primary/5 p-5 text-center">
-                  <span className="block text-3xl font-bold text-primary">2nd</span>
+                  <span className="block text-2xl font-bold text-primary">One of the</span>
                   <span className="mt-1 block text-sm text-text-light">Largest in Glasgow</span>
                 </div>
               </div>
