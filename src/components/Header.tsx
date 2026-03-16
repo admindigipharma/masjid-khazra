@@ -158,6 +158,17 @@ export default function Header() {
           </div>
 
           <NavLink
+            to="/resources"
+            className={({ isActive }) =>
+              `cursor-pointer rounded-lg px-3 py-2 text-sm font-medium transition-colors duration-150 ${
+                isActive ? 'bg-primary/10 text-primary' : 'text-text hover:bg-primary/5 hover:text-primary'
+              }`
+            }
+          >
+            Resources
+          </NavLink>
+
+          <NavLink
             to="/faq"
             className={({ isActive }) =>
               `cursor-pointer rounded-lg px-3 py-2 text-sm font-medium transition-colors duration-150 ${
@@ -211,6 +222,7 @@ export default function Header() {
             { to: '/charity', label: 'News' },
             { to: '/funerals', label: 'Funeral Services' },
             { to: '/services', label: 'All Services' },
+            { to: '/resources', label: 'Resources' },
             { to: '/faq', label: 'FAQ' },
             { to: '/contact', label: 'Contact' },
           ].map((link) => (

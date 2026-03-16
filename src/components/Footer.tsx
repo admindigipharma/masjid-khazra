@@ -21,6 +21,7 @@ export default function Footer() {
                 { to: '/prayer-times', label: 'Prayer Times' },
                 { to: '/funerals', label: 'Funeral Services' },
                 { to: '/services', label: 'Services' },
+                { to: '/resources', label: 'Resources' },
                 { to: '/faq', label: 'FAQ' },
                 { to: '/charity', label: 'News' },
                 { to: '/donate', label: 'Donate' },

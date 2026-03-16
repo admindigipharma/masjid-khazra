@@ -11,6 +11,7 @@ import Charity from './pages/Charity'
 import Donate from './pages/Donate'
 import Contact from './pages/Contact'
 import FAQ from './pages/FAQ'
+import Resources from './pages/Resources'
 
 export default function App() {
   return (
@@ -28,6 +29,7 @@ export default function App() {
           <Route path="donate" element={<Donate />} />
           <Route path="contact" element={<Contact />} />
           <Route path="faq" element={<FAQ />} />
+          <Route path="resources" element={<Resources />} />
 
         </Route>
       </Routes>
