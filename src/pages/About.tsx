@@ -1,4 +1,4 @@
-import { MapPin, Calendar, Building } from 'lucide-react'
+import { MapPin, Calendar } from 'lucide-react'
 
 export default function About() {
   return (
@@ -15,7 +15,7 @@ export default function About() {
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-3xl font-bold text-white sm:text-4xl lg:text-5xl">About Us</h1>
           <p className="mt-4 max-w-2xl text-lg text-white/80">
-            One of the largest masjids in Glasgow, serving our community with dedication and compassion for over five decades.
+            Serving our community with dedication and compassion for over five decades.
           </p>
         </div>
       </section>
@@ -48,13 +48,6 @@ export default function About() {
                   <div>
                     <span className="block text-sm font-medium text-text">Location</span>
                     <span className="text-sm text-text-light">138-140 Butterbiggins Road, Glasgow G42 7AF</span>
-                  </div>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Building size={20} className="mt-0.5 text-primary shrink-0" aria-hidden="true" />
-                  <div>
-                    <span className="block text-sm font-medium text-text">Size</span>
-                    <span className="text-sm text-text-light">One of the largest masjids in Glasgow</span>
                   </div>
                 </li>
               </ul>
