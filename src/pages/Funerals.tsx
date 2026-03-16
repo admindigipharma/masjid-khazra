@@ -17,10 +17,10 @@ const cemeteries = [
 ]
 
 const otherCemeteries = [
-  'Cambusnethen',
-  'Dunipace (Falkirk)',
-  'Bearsden Langfaulds Cemetery',
-  'Cumbernauld Eastfield Cemetery',
+  'Cambusnethen Cemetery (Wishaw)',
+  'Dunipace Cemetery (Falkirk)',
+  'Langfaulds Cemetery (Bearsden)',
+  'Eastfield Cemetery (Cumbernauld)',
   'New Dumbarton Cemetery',
 ]
 
