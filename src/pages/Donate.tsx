@@ -4,33 +4,23 @@ const MYDONA_URL = 'https://donate.mydona.com/masjid-e-khazra'
 
 const donationTiers = [
   {
-    amount: '£10',
-    label: 'Feed a family for a day',
-    description: 'Provide meals for a family in need during Ramadan or throughout the year.',
-  },
-  {
-    amount: '£25',
-    label: 'Support Quran classes',
-    description: 'Help fund a week of Quran education for young learners at the mosque.',
-  },
-  {
-    amount: '£50',
-    label: 'Community outreach',
-    description: 'Support our community outreach programmes including food banks and welfare services.',
-  },
-  {
-    amount: '£100',
-    label: 'Sustain the mosque',
+    amount: 'Sustain',
+    label: 'Sustain the Mosque',
     description: 'Help cover running costs including utilities, maintenance, and facilities for the community.',
   },
   {
-    amount: '£250',
-    label: 'Education programme',
-    description: 'Fund a month of Islamic education and youth development programmes.',
+    amount: 'Sadaqah',
+    label: 'Sadaqah',
+    description: 'Give voluntary charity (Sadaqah) to support those in need through our community programmes.',
+  },
+  {
+    amount: 'Funeral',
+    label: 'Funeral Services',
+    description: 'Support our free, volunteer-run funeral service so we can continue serving families during their most difficult times.',
   },
   {
     amount: 'Custom',
-    label: 'Give any amount',
+    label: 'Custom Amount',
     description: 'Every contribution, no matter the size, makes a difference to our community.',
   },
 ]
@@ -66,7 +56,7 @@ export default function Donate() {
             Select an amount to see the impact of your generosity, then complete your donation securely via MyDona.
           </p>
 
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {donationTiers.map((tier) => (
               <a
                 key={tier.amount}
@@ -75,11 +65,10 @@ export default function Donate() {
                 rel="noopener noreferrer"
                 className="group cursor-pointer rounded-xl border-2 border-gray-200 bg-white p-6 shadow-sm transition-all duration-200 hover:border-cta hover:shadow-lg hover:-translate-y-1 focus:outline-2 focus:outline-offset-2 focus:outline-cta"
               >
-                <span className="text-3xl font-bold text-cta">{tier.amount}</span>
-                <h3 className="mt-2 font-semibold text-text transition-colors group-hover:text-cta">{tier.label}</h3>
+                <h3 className="text-xl font-bold text-cta transition-colors group-hover:text-cta">{tier.label}</h3>
                 <p className="mt-2 text-sm text-text-light leading-relaxed">{tier.description}</p>
                 <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-cta transition-transform group-hover:translate-x-1">
-                  Donate {tier.amount !== 'Custom' ? tier.amount : ''} &rarr;
+                  Donate &rarr;
                 </span>
               </a>
             ))}
