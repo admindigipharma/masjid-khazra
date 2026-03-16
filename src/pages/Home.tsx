@@ -105,7 +105,7 @@ export default function Home() {
       </section>
 
       {/* Prayer Times */}
-      <section className="bg-white py-12 sm:py-16" aria-labelledby="prayer-heading">
+      <section className="islamic-pattern py-12 sm:py-16" aria-labelledby="prayer-heading">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-8">
             <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10" aria-hidden="true">
