@@ -105,8 +105,82 @@ export default function PrayerTimes() {
         </section>
       )}
 
+      {/* Stay Updated */}
+      <section className="bg-white py-12 sm:py-16" aria-labelledby="updated-heading">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 id="updated-heading" className="text-2xl font-semibold text-text sm:text-3xl">
+            Never Miss a Prayer
+          </h2>
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-4xl">
+            <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+              <div className="flex items-start gap-4">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary" aria-hidden="true">
+                  <Smartphone size={20} />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-text">MyMasjid App</h3>
+                  <p className="mt-1 text-sm text-text-light">
+                    Get daily prayer times on your phone. Search "My Masjid" in your app store, select UK &rarr; Glasgow &rarr; Masjid-E-Khazra.
+                  </p>
+                </div>
+              </div>
+              <div className="mt-4 flex flex-wrap gap-3">
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.teo.mymasjid"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex cursor-pointer items-center gap-2 rounded-lg bg-primary/10 px-4 py-2 text-xs font-medium text-primary transition-colors hover:bg-primary/20"
+                >
+                  Android (Google Play)
+                </a>
+                <a
+                  href="https://apps.apple.com/us/app/my-masjid-community/id1452575134"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex cursor-pointer items-center gap-2 rounded-lg bg-primary/10 px-4 py-2 text-xs font-medium text-primary transition-colors hover:bg-primary/20"
+                >
+                  iPhone (App Store)
+                </a>
+              </div>
+            </div>
+            <a
+              href="https://whatsapp.com/channel/0029Vb7S4ZFD8SDtXfKSsU3X"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-start gap-4 cursor-pointer rounded-xl border border-gray-200 bg-white p-5 shadow-sm transition-all hover:border-primary/30 hover:shadow-md"
+            >
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary" aria-hidden="true">
+                <MessageCircle size={20} />
+              </div>
+              <div>
+                <h3 className="font-semibold text-text">WhatsApp Channel</h3>
+                <p className="mt-1 text-sm text-text-light">
+                  Join our WhatsApp channel for daily prayer times and community announcements.
+                </p>
+              </div>
+            </a>
+            <a
+              href="https://qiblafinder.withgoogle.com/intl/en/onboarding"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-start gap-4 cursor-pointer rounded-xl border border-gray-200 bg-white p-5 shadow-sm transition-all hover:border-primary/30 hover:shadow-md"
+            >
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent" aria-hidden="true">
+                <Compass size={20} />
+              </div>
+              <div>
+                <h3 className="font-semibold text-text">Qibla Finder</h3>
+                <p className="mt-1 text-sm text-text-light">
+                  Find the direction of the Qibla from anywhere using Google's Qibla Finder on your phone.
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Monthly Timetable */}
-      <section className="bg-white py-12 sm:py-16" aria-labelledby="monthly-heading">
+      <section className="py-12 sm:py-16" aria-labelledby="monthly-heading">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <h2 id="monthly-heading" className="text-2xl font-semibold text-text sm:text-3xl">
@@ -222,79 +296,6 @@ export default function PrayerTimes() {
         </div>
       </section>
 
-      {/* Stay Updated */}
-      <section className="py-12 sm:py-16" aria-labelledby="updated-heading">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 id="updated-heading" className="text-2xl font-semibold text-text sm:text-3xl">
-            Never Miss a Prayer
-          </h2>
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-4xl">
-            <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
-              <div className="flex items-start gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary" aria-hidden="true">
-                  <Smartphone size={20} />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-text">MyMasjid App</h3>
-                  <p className="mt-1 text-sm text-text-light">
-                    Get daily prayer times on your phone. Search "My Masjid" in your app store, select UK &rarr; Glasgow &rarr; Masjid-E-Khazra.
-                  </p>
-                </div>
-              </div>
-              <div className="mt-4 flex flex-wrap gap-3">
-                <a
-                  href="https://play.google.com/store/apps/details?id=com.teo.mymasjid"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex cursor-pointer items-center gap-2 rounded-lg bg-primary/10 px-4 py-2 text-xs font-medium text-primary transition-colors hover:bg-primary/20"
-                >
-                  Android (Google Play)
-                </a>
-                <a
-                  href="https://apps.apple.com/us/app/my-masjid-community/id1452575134"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex cursor-pointer items-center gap-2 rounded-lg bg-primary/10 px-4 py-2 text-xs font-medium text-primary transition-colors hover:bg-primary/20"
-                >
-                  iPhone (App Store)
-                </a>
-              </div>
-            </div>
-            <a
-              href="https://whatsapp.com/channel/0029Vb7S4ZFD8SDtXfKSsU3X"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-start gap-4 cursor-pointer rounded-xl border border-gray-200 bg-white p-5 shadow-sm transition-all hover:border-primary/30 hover:shadow-md"
-            >
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary" aria-hidden="true">
-                <MessageCircle size={20} />
-              </div>
-              <div>
-                <h3 className="font-semibold text-text">WhatsApp Channel</h3>
-                <p className="mt-1 text-sm text-text-light">
-                  Join our WhatsApp channel for daily prayer times and community announcements.
-                </p>
-              </div>
-            </a>
-            <a
-              href="https://qiblafinder.withgoogle.com/intl/en/onboarding"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-start gap-4 cursor-pointer rounded-xl border border-gray-200 bg-white p-5 shadow-sm transition-all hover:border-primary/30 hover:shadow-md"
-            >
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent" aria-hidden="true">
-                <Compass size={20} />
-              </div>
-              <div>
-                <h3 className="font-semibold text-text">Qibla Finder</h3>
-                <p className="mt-1 text-sm text-text-light">
-                  Find the direction of the Qibla from anywhere using Google's Qibla Finder on your phone.
-                </p>
-              </div>
-            </a>
-          </div>
-        </div>
-      </section>
     </>
   )
 }
