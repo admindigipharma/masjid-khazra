@@ -96,10 +96,11 @@
   .gold-watermark {
     position: relative;
   }
-  .gold-watermark::before {
+  .gold-watermark::after {
     content: '';
     position: absolute;
     inset: 0;
+    z-index: 1;
     background-image: url('/images/geometric-pattern.jpg');
     background-repeat: repeat;
     background-size: 400px auto;
