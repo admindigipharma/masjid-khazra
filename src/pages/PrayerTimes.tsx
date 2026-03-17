@@ -140,7 +140,7 @@ export default function PrayerTimes() {
             </div>
           </div>
 
-          <div className="mt-6 overflow-x-auto rounded-xl border border-gray-200">
+          <div className="mt-6 max-h-[28rem] overflow-auto rounded-xl border border-gray-200">
             <table className="w-full min-w-[800px] text-xs" role="table">
               <thead>
                 <tr className="bg-primary text-white">
