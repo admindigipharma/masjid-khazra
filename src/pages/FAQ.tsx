@@ -21,6 +21,10 @@ const faqs = [
     a: 'Contact our Funeral Directors: Tahir Bashir on 07980 900 882, Amir Mushtaq on 07508 766 843, or the office on 0141 422 1154 (Option 2). Our funeral service is free and run entirely by volunteers.',
   },
   {
+    q: 'How do I book the mosque for a Nikah?',
+    a: 'Contact us on 0141 422 1154 or speak with Haji Mohammed Akram on 07871 206 102. Please note that the Imam requires a Marriage Schedule from the registrar before solemnising any marriage.',
+  },
+  {
     q: 'How can I donate to the mosque?',
     a: 'You can donate online via MyDona, by bank transfer, or by cheque/postal order. Visit our Donate page for full details including bank account numbers for specific causes.',
   },
