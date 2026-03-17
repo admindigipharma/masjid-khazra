@@ -36,6 +36,10 @@ const faqs = [
     q: 'Is the mosque accessible for disabled visitors?',
     a: 'Yes, the mosque has elevator access to all floors and disabled toilet facilities.',
   },
+  {
+    q: 'Are there any prayer facilities for women?',
+    a: 'Yes, the mosque has a dedicated women\'s prayer area. Female worshippers are welcome to attend daily prayers, Juma, and special events such as Taraweeh during Ramadan.',
+  },
   // Madrassa
   {
     q: 'What is the process of registration for madrassa?',
