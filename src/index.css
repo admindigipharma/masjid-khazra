@@ -92,6 +92,22 @@
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%23D4A843' fill-opacity='0.06'%3E%3Cpath d='M40 0L20 20h40L40 0zm0 80L20 60h40L40 80zM0 40l20-20v40L0 40zm80 0L60 20v40l20-20z'/%3E%3Cpath d='M40 28l-12 12 12 12 12-12-12-12z'/%3E%3C/g%3E%3C/svg%3E");
   }
 
+  /* Gold geometric watermark using MEK wall/carpet pattern */
+  .gold-watermark {
+    position: relative;
+  }
+  .gold-watermark::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('/images/geometric-pattern.jpg');
+    background-repeat: repeat-x;
+    background-size: auto 60px;
+    background-position: center;
+    opacity: 0.04;
+    pointer-events: none;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     html {
       scroll-behavior: auto;

@@ -157,8 +157,11 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Gold geometric divider */}
+      <div className="h-[3px] bg-gradient-to-r from-transparent via-accent/30 to-transparent" aria-hidden="true" />
+
       {/* Services Highlights */}
-      <section className="bg-bg py-12 sm:py-16" aria-labelledby="highlights-heading">
+      <section className="bg-bg py-12 sm:py-16 gold-watermark" aria-labelledby="highlights-heading">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 id="highlights-heading" className="text-2xl font-semibold text-text sm:text-3xl">
             Serving Our Community
@@ -224,6 +227,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Gold geometric divider */}
+      <div className="h-[3px] bg-gradient-to-r from-transparent via-accent/30 to-transparent" aria-hidden="true" />
 
       {/* Storytelling / Impact Section */}
       <section className="py-12 sm:py-16" aria-labelledby="impact-heading">
