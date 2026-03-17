@@ -8,7 +8,7 @@ export default function Layout() {
     <div className="flex min-h-screen flex-col">
       <PrayerTimesBar />
       <Header />
-      <main className="flex-1 gold-watermark" id="main-content">
+      <main className="flex-1 islamic-pattern" id="main-content">
         <Outlet />
       </main>
       <Footer />
