@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Clock, Smartphone, MessageCircle, ChevronLeft, ChevronRight, Printer, Compass } from 'lucide-react'
 import prayerData from '../data/prayer-times.json'
 import HeroSection from '../components/HeroSection'
+import { getJumaTimes } from '../lib/juma-times'
 
 const MONTH_NAMES = [
   'January', 'February', 'March', 'April', 'May', 'June',
@@ -37,6 +38,7 @@ export default function PrayerTimes() {
   const now = new Date()
   const [selectedMonth, setSelectedMonth] = useState(now.getMonth() + 1)
   const today = getTodayData()
+  const juma = getJumaTimes()
 
   const monthData = (prayerData.months as Record<string, DayData[]>)[String(selectedMonth)] || []
 
@@ -109,11 +111,11 @@ export default function PrayerTimes() {
               <div className="grid grid-cols-2 border-t border-accent/10">
                 <div className="px-5 py-3 border-r border-accent/10">
                   <span className="block text-xs text-text-light">MEK Butterbiggins Road</span>
-                  <span className="block mt-0.5 text-sm font-bold text-primary">2:00 PM</span>
+                  <span className="block mt-0.5 text-sm font-bold text-primary">{juma.butterbiggins}</span>
                 </div>
                 <div className="px-5 py-3">
                   <span className="block text-xs text-text-light">MEK Albert Road</span>
-                  <span className="block mt-0.5 text-sm font-bold text-primary">1:45 PM</span>
+                  <span className="block mt-0.5 text-sm font-bold text-primary">{juma.albertRoad}</span>
                 </div>
               </div>
             </div>
