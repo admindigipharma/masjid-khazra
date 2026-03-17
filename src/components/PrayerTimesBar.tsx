@@ -1,8 +1,15 @@
 import { Link } from 'react-router-dom'
+import { toHijri } from 'hijri-converter'
 import prayerData from '../data/prayer-times.json'
 
 interface PrayerTime { begins: string; iqamah: string }
 interface DayData { date: number; day: string; fajr: PrayerTime; sunrise: string; zuhr: PrayerTime; asr: PrayerTime; maghrib: PrayerTime; isha: PrayerTime }
+
+const HIJRI_MONTHS = [
+  'Muharram', 'Safar', 'Rabi al-Awwal', 'Rabi al-Thani',
+  'Jumada al-Ula', 'Jumada al-Thani', 'Rajab', 'Sha\'ban',
+  'Ramadan', 'Shawwal', 'Dhul Qi\'dah', 'Dhul Hijjah',
+]
 
 function getTodayPrayers(): DayData | null {
   const now = new Date()
@@ -20,6 +27,12 @@ function formatDate() {
   return now.toLocaleDateString('en-GB', { weekday: 'short', month: 'short', year: 'numeric' }).replace(/^\w+/, (d) => d) .replace(/\d+/, `${day}${suffix}`)
 }
 
+function getHijriDate() {
+  const now = new Date()
+  const { hy, hm, hd } = toHijri(now.getFullYear(), now.getMonth() + 1, now.getDate())
+  return `${hd} ${HIJRI_MONTHS[hm - 1]} ${hy} AH`
+}
+
 export default function PrayerTimesBar() {
   const today = getTodayPrayers()
   if (!today) return null
@@ -30,7 +43,6 @@ export default function PrayerTimesBar() {
     { name: 'Asr', begins: today.asr.begins, jamaat: today.asr.iqamah },
     { name: 'Maghrib', begins: today.maghrib.begins, jamaat: today.maghrib.iqamah },
     { name: 'Isha', begins: today.isha.begins, jamaat: today.isha.iqamah },
-    { name: 'Juma', begins: '12:30', jamaat: '1:10' },
   ]
 
   return (
@@ -38,9 +50,11 @@ export default function PrayerTimesBar() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Desktop: single row */}
         <div className="hidden sm:flex items-center justify-between py-1.5 gap-4 text-xs">
-          <span className="shrink-0 font-medium text-white/80">
-            {formatDate()}
-          </span>
+          <div className="shrink-0">
+            <span className="font-medium text-white/80">{formatDate()}</span>
+            <span className="mx-2 text-white/30">|</span>
+            <span className="font-medium text-accent/80">{getHijriDate()}</span>
+          </div>
           <div className="flex items-center gap-4">
             {prayers.map((p) => (
               <div key={p.name} className="flex items-center gap-1.5 shrink-0">
@@ -59,10 +73,15 @@ export default function PrayerTimesBar() {
           </Link>
         </div>
 
-        {/* Mobile: compact grid showing all prayers */}
+        {/* Mobile: compact layout */}
         <div className="sm:hidden py-2">
+          {/* Date row with Islamic date */}
           <div className="flex items-center justify-between mb-1.5">
-            <span className="text-[10px] font-medium text-white/80">{formatDate()}</span>
+            <div>
+              <span className="text-[10px] font-medium text-white/80">{formatDate()}</span>
+              <span className="mx-1 text-white/30">·</span>
+              <span className="text-[10px] font-medium text-accent/80">{getHijriDate()}</span>
+            </div>
             <Link
               to="/prayer-times"
               className="text-[10px] font-semibold text-accent hover:text-white transition-colors"
@@ -70,14 +89,52 @@ export default function PrayerTimesBar() {
               Full Timetable &rarr;
             </Link>
           </div>
-          <div className="grid grid-cols-6 gap-1 text-center">
+
+          {/* 5 daily prayers with Start/Jamat labels */}
+          <div className="grid grid-cols-[auto_1fr_1fr_1fr_1fr_1fr] gap-x-1 gap-y-0 text-center items-center">
+            {/* Header row with labels */}
+            <div className="text-left pr-1" />
             {prayers.map((p) => (
-              <div key={p.name} className="rounded bg-white/10 px-1 py-1.5">
-                <span className="block text-[9px] font-semibold text-accent uppercase tracking-wide">{p.name}</span>
-                <span className="block text-[10px] font-medium text-white/70 mt-0.5">{p.begins}</span>
-                <span className="block text-[11px] font-bold text-white mt-0.5">{p.jamaat}</span>
+              <div key={p.name} className="text-[9px] font-semibold text-accent uppercase tracking-wide">
+                {p.name}
               </div>
             ))}
+            {/* Start row */}
+            <div className="text-left pr-1 text-[8px] font-medium text-white/50 uppercase tracking-wide">Start</div>
+            {prayers.map((p) => (
+              <div key={`s-${p.name}`} className="rounded-t bg-white/10 px-0.5 py-1 text-[10px] font-medium text-white/70">
+                {p.begins}
+              </div>
+            ))}
+            {/* Jamat row */}
+            <div className="text-left pr-1 text-[8px] font-medium text-white/50 uppercase tracking-wide">Jamat</div>
+            {prayers.map((p) => (
+              <div key={`j-${p.name}`} className="rounded-b bg-white/10 px-0.5 py-1 text-[11px] font-bold text-white border-t border-white/5">
+                {p.jamaat}
+              </div>
+            ))}
+          </div>
+
+          {/* Juma times for both centres */}
+          <div className="mt-1.5 flex items-center justify-between gap-2 rounded bg-accent/15 px-2 py-1">
+            <div className="text-[9px] font-semibold text-accent uppercase tracking-wide">Juma</div>
+            <div className="flex items-center gap-3 text-[10px]">
+              <span className="text-white/90"><span className="font-bold">2:00pm</span> <span className="text-white/50">Butterbiggins Rd</span></span>
+              <span className="text-white/30">|</span>
+              <span className="text-white/90"><span className="font-bold">1:45pm</span> <span className="text-white/50">Albert Rd</span></span>
+            </div>
+          </div>
+
+          {/* Qibla Finder link */}
+          <div className="mt-1 flex items-center justify-center">
+            <a
+              href="https://qiblafinder.withgoogle.com/intl/en/onboarding"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[9px] font-medium text-accent/70 hover:text-accent transition-colors"
+            >
+              🧭 Qibla Finder
+            </a>
           </div>
         </div>
       </div>
