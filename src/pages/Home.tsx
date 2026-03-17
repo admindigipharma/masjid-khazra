@@ -21,7 +21,6 @@ function buildPrayerList(today: DayData | null) {
     { name: 'Asr', start: '—', jamaat: '—' },
     { name: 'Maghrib', start: '—', jamaat: '—' },
     { name: 'Isha', start: '—', jamaat: '—' },
-    { name: 'Jummah', start: '12:30 PM', jamaat: '1:10 PM' },
   ]
   return [
     { name: 'Fajr', start: today.fajr.begins, jamaat: today.fajr.iqamah },
@@ -29,7 +28,6 @@ function buildPrayerList(today: DayData | null) {
     { name: 'Asr', start: today.asr.begins, jamaat: today.asr.iqamah },
     { name: 'Maghrib', start: today.maghrib.begins, jamaat: today.maghrib.iqamah },
     { name: 'Isha', start: today.isha.begins, jamaat: today.isha.iqamah },
-    { name: 'Jummah', start: '12:30 PM', jamaat: '1:10 PM' },
   ]
 }
 
@@ -135,6 +133,24 @@ export default function Home() {
               </tbody>
             </table>
           </div>
+
+          {/* Juma times for both centres */}
+          <div className="mt-4 overflow-hidden rounded-xl border border-accent/20 bg-accent/5">
+            <div className="px-5 py-3">
+              <h3 className="text-sm font-semibold text-text">Juma (Friday) Prayer</h3>
+            </div>
+            <div className="grid grid-cols-2 border-t border-accent/10">
+              <div className="px-5 py-3 border-r border-accent/10">
+                <span className="block text-xs text-text-light">Butterbiggins Road</span>
+                <span className="block mt-0.5 text-sm font-bold text-primary">2:00 PM</span>
+              </div>
+              <div className="px-5 py-3">
+                <span className="block text-xs text-text-light">Albert Road</span>
+                <span className="block mt-0.5 text-sm font-bold text-primary">1:45 PM</span>
+              </div>
+            </div>
+          </div>
+
           <p className="mt-4 text-xs text-text-light">
             Please check the MyMasjid app or WhatsApp broadcast for daily updates.
           </p>
