@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { toHijri } from 'hijri-converter'
 import prayerData from '../data/prayer-times.json'
+import { getJumaTimes } from '../lib/juma-times'
 
 interface PrayerTime { begins: string; iqamah: string }
 interface DayData { date: number; day: string; fajr: PrayerTime; sunrise: string; zuhr: PrayerTime; asr: PrayerTime; maghrib: PrayerTime; isha: PrayerTime }
@@ -115,15 +116,17 @@ export default function PrayerTimesBar() {
             ))}
           </div>
 
-          {/* Juma times for both centres */}
+          {/* Juma times for both centres — auto-adjusts for BST/GMT */}
+          {(() => { const juma = getJumaTimes(); return (
           <div className="mt-1.5 flex items-center justify-between gap-2 rounded bg-accent/15 px-2 py-1">
             <div className="text-[9px] font-semibold text-accent uppercase tracking-wide">Juma</div>
             <div className="flex items-center gap-3 text-[10px]">
-              <span className="text-white/90"><span className="font-bold">2:00pm</span> <span className="text-white/50">Butterbiggins Rd</span></span>
+              <span className="text-white/90"><span className="font-bold">{juma.butterbiggins}</span> <span className="text-white/50">Butterbiggins Rd</span></span>
               <span className="text-white/30">|</span>
-              <span className="text-white/90"><span className="font-bold">1:45pm</span> <span className="text-white/50">Albert Rd</span></span>
+              <span className="text-white/90"><span className="font-bold">{juma.albertRoad}</span> <span className="text-white/50">Albert Rd</span></span>
             </div>
           </div>
+          ); })()}
 
           {/* Qibla Finder link */}
           <div className="mt-1 flex items-center justify-center">
