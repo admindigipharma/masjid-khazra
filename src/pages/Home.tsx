@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Clock, Heart, Users, BookOpen, Star, Shield, HandHeart } from 'lucide-react'
 import prayerData from '../data/prayer-times.json'
+import { getJumaTimes } from '../lib/juma-times'
 
 interface PrayerTime { begins: string; iqamah: string }
 interface DayData { date: number; day: string; fajr: PrayerTime; sunrise: string; zuhr: PrayerTime; asr: PrayerTime; maghrib: PrayerTime; isha: PrayerTime }
@@ -34,6 +35,7 @@ function buildPrayerList(today: DayData | null) {
 export default function Home() {
   const today = getTodayPrayers()
   const prayerTimes = buildPrayerList(today)
+  const juma = getJumaTimes()
 
   return (
     <>
@@ -142,11 +144,11 @@ export default function Home() {
             <div className="grid grid-cols-2 border-t border-accent/10">
               <div className="px-5 py-3 border-r border-accent/10">
                 <span className="block text-xs text-text-light">Butterbiggins Road</span>
-                <span className="block mt-0.5 text-sm font-bold text-primary">2:00 PM</span>
+                <span className="block mt-0.5 text-sm font-bold text-primary">{juma.butterbiggins}</span>
               </div>
               <div className="px-5 py-3">
                 <span className="block text-xs text-text-light">Albert Road</span>
-                <span className="block mt-0.5 text-sm font-bold text-primary">1:45 PM</span>
+                <span className="block mt-0.5 text-sm font-bold text-primary">{juma.albertRoad}</span>
               </div>
             </div>
           </div>
