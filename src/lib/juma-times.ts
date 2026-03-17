@@ -13,8 +13,8 @@ interface JumaTimes {
 }
 
 const JUMA_GMT: JumaTimes = {
-  butterbiggins: '1:00 PM',
-  albertRoad: '12:45 PM',
+  butterbiggins: '1:10 PM',
+  albertRoad: '1:00 PM',
 }
 
 const JUMA_BST: JumaTimes = {
