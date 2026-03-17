@@ -90,7 +90,6 @@ export default function PrayerTimes() {
                     { name: 'Asr', begins: today.asr.begins, iqamah: today.asr.iqamah },
                     { name: 'Maghrib', begins: today.maghrib.begins, iqamah: today.maghrib.iqamah },
                     { name: 'Isha', begins: today.isha.begins, iqamah: today.isha.iqamah },
-                    { name: 'Juma', begins: '12:30', iqamah: '1:10' },
                   ].map((prayer, i) => (
                     <tr key={prayer.name} className={`border-t border-gray-100 ${i % 2 === 1 ? 'bg-gray-50/50' : ''}`}>
                       <td className="py-4 pl-5 pr-4 font-medium text-text">{prayer.name}</td>
@@ -100,6 +99,23 @@ export default function PrayerTimes() {
                   ))}
                 </tbody>
               </table>
+            </div>
+
+            {/* Juma times for both centres */}
+            <div className="mt-6 overflow-hidden rounded-xl border border-accent/20 bg-accent/5 max-w-2xl">
+              <div className="px-5 py-3">
+                <h3 className="text-sm font-semibold text-text">Juma (Friday) Prayer</h3>
+              </div>
+              <div className="grid grid-cols-2 border-t border-accent/10">
+                <div className="px-5 py-3 border-r border-accent/10">
+                  <span className="block text-xs text-text-light">MEK Butterbiggins Road</span>
+                  <span className="block mt-0.5 text-sm font-bold text-primary">2:00 PM</span>
+                </div>
+                <div className="px-5 py-3">
+                  <span className="block text-xs text-text-light">MEK Albert Road</span>
+                  <span className="block mt-0.5 text-sm font-bold text-primary">1:45 PM</span>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -215,7 +231,7 @@ export default function PrayerTimes() {
           </div>
 
           <div className="mt-6 max-h-[28rem] overflow-auto rounded-xl border border-gray-200">
-            <table className="w-full min-w-[800px] text-xs" role="table">
+            <table className="w-full min-w-[720px] text-xs" role="table">
               <thead>
                 <tr className="bg-primary text-white">
                   <th scope="col" rowSpan={2} className="py-2 pl-3 pr-2 text-left font-semibold">Date</th>
