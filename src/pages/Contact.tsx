@@ -388,7 +388,7 @@ export default function Contact() {
           <h2 id="map-heading" className="text-2xl font-semibold text-text sm:text-3xl">Find Us</h2>
           <div className="mt-6 aspect-video w-full overflow-hidden rounded-xl border border-gray-200">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2240.5!2d-4.2615!3d55.8398!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x488846a5e4a7e5c1%3A0x5c5e5c5c5c5c5c5c!2s138-140+Butterbiggins+Rd%2C+Glasgow+G42+7AF!5e0!3m2!1sen!2suk!4v1"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2240.5!2d-4.2604522!3d55.8404608!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48884692cf9599cf%3A0x8f0846e4d8a6363b!2sMasjid-E-Khazra!5e0!3m2!1sen!2suk!4v1"
               width="100%"
               height="100%"
               style={{ border: 0 }}

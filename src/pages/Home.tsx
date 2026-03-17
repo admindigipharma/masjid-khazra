@@ -66,7 +66,7 @@ export default function Home() {
                 Support Your Masjid
               </Link>
               <a
-                href="https://maps.google.com/?q=138-140+Butterbiggins+Road+Glasgow+G42+7AF"
+                href="https://maps.app.goo.gl/4fPT4WfhQTSa5e1t8"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="cursor-pointer rounded-lg border-2 border-white/30 px-7 py-3.5 text-base font-semibold text-white backdrop-blur-sm transition-all hover:border-white hover:bg-white/10 hover:-translate-y-0.5 focus:outline-2 focus:outline-offset-2 focus:outline-white"
