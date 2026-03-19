@@ -27,7 +27,7 @@ export default function About() {
             <div>
               <h2 id="history-heading" className="text-2xl font-semibold text-text sm:text-3xl">Our History</h2>
               <p className="mt-4 text-text-light leading-relaxed">
-                Established in the 1970s, Masjid-e-Khazra has grown to become one of Scotland's leading mosques.
+                Established in the 1970s, Masjid-E-Khazra has grown to become one of Scotland's leading mosques.
                 Located on Glasgow's southside at Butterbiggins Road, we have been a focal point for the Muslim
                 community — providing a space for worship, education, and community gathering for over fifty years.
               </p>
@@ -57,7 +57,7 @@ export default function About() {
           {/* Photo Gallery */}
           <div className="mt-12 grid grid-cols-2 gap-4 lg:grid-cols-4">
             <div className="col-span-2 overflow-hidden rounded-xl">
-              <img src="/images/prayer-hall-wide.jpg" alt="Main prayer hall at Masjid-e-Khazra" className="h-64 w-full object-cover transition-transform duration-500 hover:scale-105" loading="lazy" />
+              <img src="/images/prayer-hall-wide.jpg" alt="Main prayer hall at Masjid-E-Khazra" className="h-64 w-full object-cover transition-transform duration-500 hover:scale-105" loading="lazy" />
             </div>
             <div className="overflow-hidden rounded-xl">
               <img src="/images/dome-calligraphy.jpg" alt="Dome calligraphy inside the mosque" className="h-64 w-full object-cover transition-transform duration-500 hover:scale-105" loading="lazy" />
@@ -90,7 +90,7 @@ export default function About() {
               { title: 'Mortuary & Janaza Ghusl', description: 'Located on ground floor.' },
               { title: 'Four Wudhu Areas', description: 'For men and women, including disabled toilet access.' },
               { title: 'Teaching, Meeting & Seminar Areas', description: 'Part of current extension.' },
-              { title: 'Residential Lodging', description: 'Located inside the mosque to accommodate the Imam.' },
+
             ].map((facility) => (
               <div key={facility.title} className="rounded-lg border border-gray-200 p-5">
                 <h3 className="font-semibold text-text">{facility.title}</h3>
@@ -215,7 +215,7 @@ export default function About() {
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Masjid-e-Khazra, 138-140 Butterbiggins Road, Glasgow"
+              title="Masjid-E-Khazra, 138-140 Butterbiggins Road, Glasgow"
             />
           </div>
         </div>
