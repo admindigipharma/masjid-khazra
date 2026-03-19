@@ -28,7 +28,18 @@ function formatDate() {
   return now.toLocaleDateString('en-GB', { weekday: 'short', month: 'short', year: 'numeric' }).replace(/^\w+/, (d) => d) .replace(/\d+/, `${day}${suffix}`)
 }
 
+/**
+ * Manual Hijri date override for local moon-sighting calendar.
+ * Set to null to use automatic calculation.
+ * Format: { day: number, month: number (1-12), year: number }
+ */
+const HIJRI_OVERRIDE: { day: number; month: number; year: number } | null = { day: 29, month: 9, year: 1447 }
+
 function getHijriDate() {
+  if (HIJRI_OVERRIDE) {
+    const { day, month, year } = HIJRI_OVERRIDE
+    return `${day} ${HIJRI_MONTHS[month - 1]} ${year} AH`
+  }
   const now = new Date()
   const { hy, hm, hd } = toHijri(now.getFullYear(), now.getMonth() + 1, now.getDate())
   return `${hd} ${HIJRI_MONTHS[hm - 1]} ${hy} AH`
