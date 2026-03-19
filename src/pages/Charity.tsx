@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Heart, Utensils, GraduationCap, Users } from 'lucide-react'
 import HeroSection from '../components/HeroSection'
+import { usePageTitle } from '../lib/usePageTitle'
 
 const updates = [
   {
@@ -71,6 +72,7 @@ function getCategoryColour(category: string) {
 }
 
 export default function Charity() {
+  usePageTitle('News')
   return (
     <>
       <HeroSection

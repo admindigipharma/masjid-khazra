@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Clock, Heart, Users, BookOpen, Star, Shield, HandHeart } from 'lucide-react'
+import { usePageTitle } from '../lib/usePageTitle'
 import prayerData from '../data/prayer-times.json'
 import { getJumaTimes } from '../lib/juma-times'
 
@@ -35,6 +36,7 @@ function buildPrayerList(today: DayData | null) {
 }
 
 export default function Home() {
+  usePageTitle()
   const today = getTodayPrayers()
   const prayerTimes = buildPrayerList(today)
   const juma = getJumaTimes()

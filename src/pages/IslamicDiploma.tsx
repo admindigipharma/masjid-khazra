@@ -1,6 +1,8 @@
 import { ExternalLink, GraduationCap } from 'lucide-react'
+import { usePageTitle } from '../lib/usePageTitle'
 
 export default function IslamicDiploma() {
+  usePageTitle('Islamic Diploma')
   return (
     <>
       <section className="bg-primary py-16 sm:py-20">

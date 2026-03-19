@@ -1,6 +1,8 @@
 import { MapPin, Calendar } from 'lucide-react'
+import { usePageTitle } from '../lib/usePageTitle'
 
 export default function About() {
+  usePageTitle('About Us')
   return (
     <>
       {/* Hero */}

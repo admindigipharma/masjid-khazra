@@ -14,8 +14,10 @@ import {
   AlertTriangle,
 } from 'lucide-react'
 import HeroSection from '../components/HeroSection'
+import { usePageTitle } from '../lib/usePageTitle'
 
 export default function Services() {
+  usePageTitle('Services')
   return (
     <>
       <HeroSection

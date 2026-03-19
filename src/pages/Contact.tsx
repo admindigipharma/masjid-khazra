@@ -2,6 +2,7 @@ import { useState, useRef, type FormEvent } from 'react'
 import { Phone, Mail, MapPin, Clock, AlertCircle } from 'lucide-react'
 import { sanitize, isValidEmail, isValidPhone, checkRateLimit } from '../lib/form-security'
 import HeroSection from '../components/HeroSection'
+import { usePageTitle } from '../lib/usePageTitle'
 
 interface FormErrors {
   name?: string
@@ -13,6 +14,7 @@ interface FormErrors {
 }
 
 export default function Contact() {
+  usePageTitle('Contact')
   const [submitted, setSubmitted] = useState(false)
   const [errors, setErrors] = useState<FormErrors>({})
   const [isSubmitting, setIsSubmitting] = useState(false)

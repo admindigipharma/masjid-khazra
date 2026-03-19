@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { ChevronDown } from 'lucide-react'
 import HeroSection from '../components/HeroSection'
+import { usePageTitle } from '../lib/usePageTitle'
 
 const faqs = [
   // General
@@ -80,6 +81,7 @@ const faqs = [
 ]
 
 export default function FAQ() {
+  usePageTitle('FAQ')
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (

@@ -3,6 +3,7 @@ import { Clock, Smartphone, MessageCircle, ChevronLeft, ChevronRight, Printer, C
 import prayerData from '../data/prayer-times.json'
 import HeroSection from '../components/HeroSection'
 import { getJumaTimes } from '../lib/juma-times'
+import { usePageTitle } from '../lib/usePageTitle'
 
 const MONTH_NAMES = [
   'January', 'February', 'March', 'April', 'May', 'June',
@@ -35,6 +36,7 @@ function getTodayData(): DayData | null {
 }
 
 export default function PrayerTimes() {
+  usePageTitle('Prayer Times')
   const now = new Date()
   const [selectedMonth, setSelectedMonth] = useState(now.getMonth() + 1)
   const today = getTodayData()

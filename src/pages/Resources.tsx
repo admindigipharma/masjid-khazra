@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { FileText, ExternalLink, Download, ChevronDown } from 'lucide-react'
 import HeroSection from '../components/HeroSection'
+import { usePageTitle } from '../lib/usePageTitle'
 
 const usefulLinks = [
   {
@@ -94,6 +95,7 @@ function DownloadsList() {
 }
 
 export default function Resources() {
+  usePageTitle('Resources')
   return (
     <>
       <HeroSection

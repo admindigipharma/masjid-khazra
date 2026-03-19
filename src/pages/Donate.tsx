@@ -1,4 +1,5 @@
 import { Heart, Shield, Repeat, Gift, Building2, Mail } from 'lucide-react'
+import { usePageTitle } from '../lib/usePageTitle'
 
 const MYDONA_URL = 'https://donate.mydona.com/masjid-e-khazra'
 
@@ -33,6 +34,7 @@ const bankAccounts = [
 ]
 
 export default function Donate() {
+  usePageTitle('Donate')
   return (
     <>
       {/* Hero */}

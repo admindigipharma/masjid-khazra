@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Phone, Clock, Heart, Users, Truck, MapPin, FileText, AlertCircle } from 'lucide-react'
+import { usePageTitle } from '../lib/usePageTitle'
 
 const cemeteries = [
   {
@@ -25,6 +26,7 @@ const otherCemeteries = [
 ]
 
 export default function Funerals() {
+  usePageTitle('Funeral Services')
   return (
     <>
       {/* Hero */}
