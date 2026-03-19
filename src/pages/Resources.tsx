@@ -1,4 +1,5 @@
-import { FileText, ExternalLink, Download } from 'lucide-react'
+import { useState } from 'react'
+import { FileText, ExternalLink, Download, ChevronDown } from 'lucide-react'
 import HeroSection from '../components/HeroSection'
 
 const usefulLinks = [
@@ -33,6 +34,64 @@ const usefulLinks = [
     description: 'Make a secure online donation to Masjid-E-Khazra.',
   },
 ]
+
+const downloads = [
+  { title: 'Understanding the Four Madhabs', file: '_Understanding the 4 Madhabs (AHM).pdf' },
+  { title: 'In the Defence of the Sunnah', file: '159_In the Defence of the Sunnah.pdf' },
+  { title: 'Aspects of the Salaat', file: 'Aspects_of_the_Salaat.pdf' },
+  { title: 'Benefits of Saints', file: 'BenefitsOfSaints_Ihsanica.pdf' },
+  { title: 'Dalail al-Khayrat', file: 'Dalail al Khayrat.pdf' },
+  { title: 'Differences are a Mercy', file: 'Differences_are_a_Mercy.pdf' },
+  { title: 'Evidence of 20 Rakahs Taraweeh', file: 'Evidence of 20 rakahs Taraweeh.pdf' },
+  { title: 'A Glimpse into Prophetic Beauty', file: 'GlimpseintoPropheticBeauty.pdf' },
+  { title: 'Kissing our Thumbs', file: 'Kissing our Thumbs.pdf' },
+  { title: 'Knowledge of the Unseen', file: 'Knowledge of the unseen.pdf' },
+  { title: 'The Martyrdom of Husayn', file: 'MartyrdomOfHusayn.pdf' },
+  { title: 'Nisf Sha\u2019ban', file: 'Nisf Shaban.pdf' },
+  { title: 'Of Pure Origin', file: 'Of_Pure_Origin_Ihsanica.pdf' },
+  { title: 'The Pinnacle of Beauty', file: 'PinnacleOfBeauty_Ihsanica.pdf' },
+  { title: 'Ruqya in Islam', file: 'Ruqya in Islam.pdf' },
+  { title: 'The Love for the Prophet \uFDFA', file: 'The Love for the Prophet.pdf' },
+  { title: 'Etiquettes of Handling the Qur\u2019an', file: 'The_Etiquettes_of_Handling_the_Quran..pdf' },
+  { title: 'The Permissibility of the Hadrah', file: 'The_Permissibility_of_the_Hadrah.pdf' },
+  { title: 'What Islam Really Says About Domestic Abuse', file: 'What_Islam_Really_Says_About_Domestic_Abuse.pdf' },
+]
+
+const INITIAL_SHOW = 6
+
+function DownloadsList() {
+  const [showAll, setShowAll] = useState(false)
+  const visible = showAll ? downloads : downloads.slice(0, INITIAL_SHOW)
+
+  return (
+    <div className="mt-8">
+      <div className="overflow-hidden rounded-xl border border-gray-200 bg-white divide-y divide-gray-100">
+        {visible.map((doc) => (
+          <a
+            key={doc.file}
+            href={`/Masjid%20images/${encodeURIComponent(doc.file)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-3 px-5 py-3.5 transition-colors hover:bg-primary/[0.02] focus:outline-2 focus:outline-offset-[-2px] focus:outline-primary"
+          >
+            <FileText size={18} className="shrink-0 text-accent" aria-hidden="true" />
+            <span className="flex-1 text-sm font-medium text-text">{doc.title}</span>
+            <Download size={16} className="shrink-0 text-text-light" aria-hidden="true" />
+          </a>
+        ))}
+      </div>
+      {downloads.length > INITIAL_SHOW && !showAll && (
+        <button
+          onClick={() => setShowAll(true)}
+          className="mt-3 flex cursor-pointer items-center gap-1.5 text-sm font-semibold text-primary hover:text-primary-light transition-colors focus:outline-2 focus:outline-offset-2 focus:outline-primary"
+        >
+          Show all {downloads.length} resources
+          <ChevronDown size={16} aria-hidden="true" />
+        </button>
+      )}
+    </div>
+  )
+}
 
 export default function Resources() {
   return (
@@ -88,12 +147,7 @@ export default function Resources() {
             Downloadable documents and resources from Masjid-E-Khazra.
           </p>
 
-          <div className="mt-8 rounded-xl border border-gray-200 bg-white p-8 text-center">
-            <FileText size={40} className="mx-auto text-text-light/30" aria-hidden="true" />
-            <p className="mt-4 text-text-light">
-              Downloadable resources are being prepared and will be available here soon, insha'Allah.
-            </p>
-          </div>
+          <DownloadsList />
         </div>
       </section>
     </>
