@@ -22,7 +22,7 @@ export default function IslamicDiploma() {
               Hajveri Institute Islamic Diploma
             </h2>
             <p className="mt-3 text-text-light leading-relaxed">
-              Masjid-e-Khazra hosts the Hajveri Institute Islamic Diploma programme, offering
+              Masjid-E-Khazra hosts the Hajveri Institute Islamic Diploma programme, offering
               a comprehensive course in Islamic studies. For full details on the curriculum,
               schedule, and enrolment, please visit the Hajveri Institute website.
             </p>

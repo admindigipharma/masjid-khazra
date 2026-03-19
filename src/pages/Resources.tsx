@@ -30,7 +30,7 @@ const usefulLinks = [
   {
     title: 'Donate via MyDona',
     url: 'https://donate.mydona.com/masjid-e-khazra',
-    description: 'Make a secure online donation to Masjid-e-Khazra.',
+    description: 'Make a secure online donation to Masjid-E-Khazra.',
   },
 ]
 
@@ -85,7 +85,7 @@ export default function Resources() {
             </h2>
           </div>
           <p className="mt-2 text-text-light">
-            Downloadable documents and resources from Masjid-e-Khazra.
+            Downloadable documents and resources from Masjid-E-Khazra.
           </p>
 
           <div className="mt-8 rounded-xl border border-gray-200 bg-white p-8 text-center">

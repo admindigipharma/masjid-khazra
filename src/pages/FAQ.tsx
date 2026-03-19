@@ -9,7 +9,7 @@ const faqs = [
     a: 'The mosque is open daily for all five prayers. The mosque is accessible from early morning (Fajr) through to after the last prayer (Isha). Please check the prayer timetable for specific times.',
   },
   {
-    q: 'Where is Masjid-e-Khazra located?',
+    q: 'Where is Masjid-E-Khazra located?',
     a: 'Our main mosque is at 138-140 Butterbiggins Road, Glasgow G42 7AF. We also have a branch at 69 Albert Road, Glasgow G42 8DP.',
   },
   {

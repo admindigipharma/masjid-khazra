@@ -395,7 +395,7 @@ export default function Contact() {
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Masjid-e-Khazra, 138-140 Butterbiggins Road, Glasgow"
+              title="Masjid-E-Khazra, 138-140 Butterbiggins Road, Glasgow"
             />
           </div>
         </div>

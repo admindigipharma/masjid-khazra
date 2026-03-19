@@ -57,7 +57,7 @@ export default function PrayerTimes() {
     <>
       <HeroSection
         title="Prayer Times"
-        subtitle="Daily and monthly prayer timetables for Masjid-e-Khazra, Glasgow."
+        subtitle="Daily and monthly prayer timetables for Masjid-E-Khazra, Glasgow."
         startIndex={0}
       />
 

@@ -84,7 +84,7 @@ export default function Funerals() {
               { icon: FileText, title: 'Administration', desc: 'All paperwork, death registration coordination, and cemetery booking handled on your behalf.' },
               { icon: Truck, title: 'Transportation', desc: 'Private ambulance and hearse for collection and transportation of the deceased.' },
               { icon: Heart, title: 'Ghusl & Kafn', desc: 'Islamic ritual washing and shrouding carried out with the utmost care and respect.' },
-              { icon: Users, title: 'Janazah Prayer', desc: 'Funeral prayer held at Masjid-e-Khazra with the community coming together.' },
+              { icon: Users, title: 'Janazah Prayer', desc: 'Funeral prayer held at Masjid-E-Khazra with the community coming together.' },
               { icon: Clock, title: 'Mortuary & Storage', desc: 'Body storage facilities available. We also coordinate with hospital mortuaries.' },
               { icon: MapPin, title: 'Burial Coordination', desc: 'Cemetery communication, booking burial plots, and coordinating the burial itself.' },
             ].map((service) => (
@@ -306,7 +306,7 @@ export default function Funerals() {
           <div className="mt-6">
             <h3 className="font-semibold text-text">Other Cemeteries We Serve</h3>
             <p className="mt-1 text-sm text-text-light">
-              We can carry out Muslim burials at any of the following locations, as long as the funeral takes place at Masjid-e-Khazra:
+              We can carry out Muslim burials at any of the following locations, as long as the funeral takes place at Masjid-E-Khazra:
             </p>
             <ul className="mt-2 flex flex-wrap gap-2">
               {otherCemeteries.map((name) => (
