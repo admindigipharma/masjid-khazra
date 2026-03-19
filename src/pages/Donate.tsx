@@ -28,7 +28,7 @@ const donationTiers = [
 const bankAccounts = [
   { name: 'Masjid (General)', account: '00108404', description: 'General mosque operations and maintenance' },
   { name: 'Fitrana / Sadaqa / Zakat', account: '10034069', description: 'Obligatory and voluntary charity' },
-  { name: 'Community Funeral Fund', account: '10040063', description: 'For those who cannot afford funeral costs' },
+  { name: 'Community Funeral Fund', account: '', description: 'For those who cannot afford funeral costs' },
   { name: 'Mosque Funeral Account', account: '10033963', description: 'Running the funeral service' },
 ]
 
@@ -100,9 +100,11 @@ export default function Donate() {
               <div key={acc.account} className="rounded-lg border border-gray-200 bg-white p-5">
                 <h3 className="font-semibold text-text">{acc.name}</h3>
                 <p className="mt-1 text-sm text-text-light">{acc.description}</p>
-                <p className="mt-2 text-sm">
-                  Account: <span className="font-semibold text-primary">{acc.account}</span>
-                </p>
+                {acc.account && (
+                  <p className="mt-2 text-sm">
+                    Account: <span className="font-semibold text-primary">{acc.account}</span>
+                  </p>
+                )}
               </div>
             ))}
           </div>
@@ -125,10 +127,10 @@ export default function Donate() {
 
           <div className="mt-6 rounded-xl border border-gray-200 bg-white p-5">
             <p className="text-sm text-text-light">Make cheques payable to:</p>
-            <p className="mt-1 text-base font-semibold text-text">Masjid-e-Khazra</p>
+            <p className="mt-1 text-base font-semibold text-text">Masjid-E-Khazra</p>
             <p className="mt-4 text-sm text-text-light">Post to:</p>
             <p className="mt-1 text-base font-semibold text-text">
-              Masjid-e-Khazra, 138-140 Butterbiggins Road, Glasgow, G42 7AF
+              Masjid-E-Khazra, 138-140 Butterbiggins Road, Glasgow, G42 7AF
             </p>
           </div>
         </div>
