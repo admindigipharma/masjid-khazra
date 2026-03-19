@@ -387,9 +387,9 @@ export default function Services() {
                 <MessageCircle size={24} />
               </div>
               <div>
-                <h3 className="font-semibold text-text">WhatsApp Broadcast</h3>
+                <h3 className="font-semibold text-text">WhatsApp Channel</h3>
                 <p className="mt-1 text-sm text-text-light">
-                  Join our WhatsApp broadcast list for daily prayer time reminders and important community announcements.
+                  Join our WhatsApp Channel for daily prayer time reminders and important community announcements.
                 </p>
               </div>
             </div>
