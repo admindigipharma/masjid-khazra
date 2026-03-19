@@ -18,6 +18,7 @@ function getTodayPrayers() {
 function buildPrayerList(today: DayData | null) {
   if (!today) return [
     { name: 'Fajr', start: '—', jamaat: '—' },
+    { name: 'Sunrise', start: '—', jamaat: '' },
     { name: 'Zuhr', start: '—', jamaat: '—' },
     { name: 'Asr', start: '—', jamaat: '—' },
     { name: 'Maghrib', start: '—', jamaat: '—' },
@@ -25,6 +26,7 @@ function buildPrayerList(today: DayData | null) {
   ]
   return [
     { name: 'Fajr', start: today.fajr.begins, jamaat: today.fajr.iqamah },
+    { name: 'Sunrise', start: today.sunrise, jamaat: '' },
     { name: 'Zuhr', start: today.zuhr.begins, jamaat: today.zuhr.iqamah },
     { name: 'Asr', start: today.asr.begins, jamaat: today.asr.iqamah },
     { name: 'Maghrib', start: today.maghrib.begins, jamaat: today.maghrib.iqamah },
@@ -55,7 +57,7 @@ export default function Home() {
             </p>
             <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
               Welcome to<br />
-              <span className="text-accent">Masjid-e-Khazra</span>
+              <span className="text-accent">Masjid-E-Khazra</span>
             </h1>
             <p className="mt-4 text-lg leading-relaxed text-white/80 sm:text-xl">
               A focal point for Glasgow's Muslim community. One of Scotland's leading mosques, serving worship, education, and community care.
@@ -68,7 +70,7 @@ export default function Home() {
                 Support Your Masjid
               </Link>
               <a
-                href="https://maps.app.goo.gl/4fPT4WfhQTSa5e1t8"
+                href="https://www.google.com/maps/search/?api=1&query=Masjid+E+Khazra+138+Butterbiggins+Road+Glasgow+G42+7AF"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="cursor-pointer rounded-lg border-2 border-white/30 px-7 py-3.5 text-base font-semibold text-white backdrop-blur-sm transition-all hover:border-white hover:bg-white/10 hover:-translate-y-0.5 focus:outline-2 focus:outline-offset-2 focus:outline-white"
@@ -126,10 +128,10 @@ export default function Home() {
               </thead>
               <tbody>
                 {prayerTimes.map((prayer, i) => (
-                  <tr key={prayer.name} className={`border-t border-gray-100 transition-colors hover:bg-primary/[0.02] ${i % 2 === 1 ? 'bg-gray-50/50' : ''}`}>
-                    <td className="py-3.5 pl-5 pr-4 font-medium text-text">{prayer.name}</td>
+                  <tr key={prayer.name} className={`border-t border-gray-100 transition-colors hover:bg-primary/[0.02] ${i % 2 === 1 ? 'bg-gray-50/50' : ''} ${prayer.name === 'Sunrise' ? 'bg-accent/5' : ''}`}>
+                    <td className={`py-3.5 pl-5 pr-4 font-medium ${prayer.name === 'Sunrise' ? 'text-accent' : 'text-text'}`}>{prayer.name}</td>
                     <td className="py-3.5 px-4 text-text-light">{prayer.start}</td>
-                    <td className="py-3.5 pl-4 pr-5 font-semibold text-primary">{prayer.jamaat}</td>
+                    <td className="py-3.5 pl-4 pr-5 font-semibold text-primary">{prayer.jamaat || '—'}</td>
                   </tr>
                 ))}
               </tbody>
@@ -154,7 +156,7 @@ export default function Home() {
           </div>
 
           <p className="mt-4 text-xs text-text-light">
-            Please check the MyMasjid app or WhatsApp broadcast for daily updates.
+            Please check the MyMasjid app or WhatsApp Channel for daily updates.
           </p>
         </div>
       </section>
@@ -163,7 +165,7 @@ export default function Home() {
       <div className="h-[3px] bg-gradient-to-r from-transparent via-accent/30 to-transparent" aria-hidden="true" />
 
       {/* Services Highlights */}
-      <section className="bg-bg py-12 sm:py-16 gold-watermark" aria-labelledby="highlights-heading">
+      <section className="bg-bg py-12 sm:py-16" aria-labelledby="highlights-heading">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 id="highlights-heading" className="text-2xl font-semibold text-text sm:text-3xl">
             Serving Our Community
@@ -243,7 +245,7 @@ export default function Home() {
                   More Than a Place of Worship
                 </h2>
                 <p className="mt-4 text-text-light leading-relaxed">
-                  For over fifty years, Masjid-e-Khazra has been at the heart of Glasgow's southside.
+                  For over fifty years, Masjid-E-Khazra has been at the heart of Glasgow's southside.
                   We are not just a mosque — we are a community. From providing funeral services to
                   running food banks, from educating our youth to welcoming visitors of all faiths,
                   we are here to serve.
