@@ -131,6 +131,26 @@ export default function About() {
             ))}
           </div>
 
+          {/* Trustees */}
+          <h3 className="mt-10 text-lg font-semibold text-text">Trustees</h3>
+          <div className="mt-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+            {[
+              { name: 'Muhammad Akram', role: 'Chairman' },
+              { name: 'Muhammad Sarwar', role: 'General Secretary' },
+              { name: 'Abdul Wahab', role: 'Treasurer' },
+              { name: 'Mohammed Azeem', role: 'Trustee' },
+              { name: 'Mahboob Elahi', role: 'Trustee' },
+            ].map((person) => (
+              <div key={person.name} className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent/10 text-accent font-bold text-sm" aria-hidden="true">
+                  {person.name.split(' ').map(n => n[0]).join('')}
+                </div>
+                <h4 className="mt-3 font-semibold text-text">{person.name}</h4>
+                <p className="text-xs font-medium text-primary">{person.role}</p>
+              </div>
+            ))}
+          </div>
+
           {/* Funeral Directors */}
           <h3 className="mt-10 text-lg font-semibold text-text">Funeral Directors</h3>
           <div className="mt-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -154,26 +174,6 @@ export default function About() {
                 07508 766 843
               </a>
             </div>
-          </div>
-
-          {/* Trustees */}
-          <h3 className="mt-10 text-lg font-semibold text-text">Trustees</h3>
-          <div className="mt-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-            {[
-              { name: 'Muhammad Akram', role: 'Chairman' },
-              { name: 'Muhammad Sarwar', role: 'General Secretary' },
-              { name: 'Abdul Wahab', role: 'Treasurer' },
-              { name: 'Mohammed Azeem', role: 'Trustee' },
-              { name: 'Mahboob Elahi', role: 'Trustee' },
-            ].map((person) => (
-              <div key={person.name} className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent/10 text-accent font-bold text-sm" aria-hidden="true">
-                  {person.name.split(' ').map(n => n[0]).join('')}
-                </div>
-                <h4 className="mt-3 font-semibold text-text">{person.name}</h4>
-                <p className="text-xs font-medium text-primary">{person.role}</p>
-              </div>
-            ))}
           </div>
 
           {/* Committee Members */}
