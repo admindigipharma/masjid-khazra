@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://masjidkhazra.org/sitemap.xml
