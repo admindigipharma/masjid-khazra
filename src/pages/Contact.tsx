@@ -1,6 +1,7 @@
 import { useState, useRef, type FormEvent } from 'react'
 import { Phone, Mail, MapPin, Clock, AlertCircle } from 'lucide-react'
 import { sanitize, isValidEmail, isValidPhone, checkRateLimit } from '../lib/form-security'
+import { executeRecaptcha, recaptchaEnabled } from '../lib/recaptcha'
 import HeroSection from '../components/HeroSection'
 import { usePageTitle } from '../lib/usePageTitle'
 
@@ -72,7 +73,7 @@ export default function Contact() {
     return errs
   }
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
     const data = new FormData(e.currentTarget)
     const validationErrors = validateForm(data)
@@ -86,13 +87,37 @@ export default function Contact() {
     setErrors({})
     setIsSubmitting(true)
 
-    // Sanitised data ready for submission
-    // Will wire up to email service (e.g. Formspree, Resend)
-    void sanitize(data.get('name') as string, 100)
-    setTimeout(() => {
-      setIsSubmitting(false)
+    try {
+      // Get reCAPTCHA v3 token (null if not configured)
+      const recaptchaToken = await executeRecaptcha('contact_form')
+
+      const payload = {
+        name: sanitize(data.get('name') as string, 100),
+        email: (data.get('email') as string).trim(),
+        phone: (data.get('phone') as string || '').trim(),
+        subject: data.get('subject') as string,
+        message: sanitize(data.get('message') as string, 2000),
+        ...(recaptchaToken && { recaptchaToken }),
+      }
+
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      })
+
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({}))
+        throw new Error(body.error || 'Failed to send message. Please try again.')
+      }
+
       setSubmitted(true)
-    }, 600)
+    } catch (err) {
+      setErrors({ form: err instanceof Error ? err.message : 'Something went wrong. Please try again.' })
+      errorRef.current?.focus()
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const hasErrors = Object.keys(errors).length > 0
@@ -376,6 +401,16 @@ export default function Contact() {
                     >
                       {isSubmitting ? 'Sending...' : 'Send Message'}
                     </button>
+
+                    {recaptchaEnabled && (
+                      <p className="mt-3 text-xs text-text-light/70">
+                        This site is protected by reCAPTCHA and the Google{' '}
+                        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">Privacy Policy</a>{' '}
+                        and{' '}
+                        <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">Terms of Service</a>{' '}
+                        apply.
+                      </p>
+                    )}
                   </form>
                 </>
               )}
