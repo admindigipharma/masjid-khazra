@@ -33,7 +33,7 @@ function formatDate() {
  * Set to null to use automatic calculation.
  * Format: { day: number, month: number (1-12), year: number }
  */
-const HIJRI_OVERRIDE: { day: number; month: number; year: number } | null = { day: 29, month: 9, year: 1447 }
+const HIJRI_OVERRIDE: { day: number; month: number; year: number } | null = { day: 1, month: 10, year: 1447 }
 
 function getHijriDate() {
   if (HIJRI_OVERRIDE) {
