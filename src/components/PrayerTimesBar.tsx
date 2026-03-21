@@ -29,18 +29,20 @@ function formatDate() {
 }
 
 /**
- * Manual Hijri date override for local moon-sighting calendar.
- * Set to null to use automatic calculation.
- * Format: { day: number, month: number (1-12), year: number }
+ * Hijri day adjustment for local moon-sighting differences.
+ * 0  = use automatic calculation (default)
+ * +1 = mosque started the month 1 day before the algorithm
+ * -1 = mosque started the month 1 day after the algorithm
+ * Adjusts the input date fed to the converter, so month/year
+ * boundaries are handled automatically — no more stale overrides.
  */
-const HIJRI_OVERRIDE: { day: number; month: number; year: number } | null = { day: 1, month: 10, year: 1447 }
+const HIJRI_DAY_ADJUSTMENT = 0
 
 function getHijriDate() {
-  if (HIJRI_OVERRIDE) {
-    const { day, month, year } = HIJRI_OVERRIDE
-    return `${day} ${HIJRI_MONTHS[month - 1]} ${year} AH`
-  }
   const now = new Date()
+  if (HIJRI_DAY_ADJUSTMENT !== 0) {
+    now.setDate(now.getDate() + HIJRI_DAY_ADJUSTMENT)
+  }
   const { hy, hm, hd } = toHijri(now.getFullYear(), now.getMonth() + 1, now.getDate())
   return `${hd} ${HIJRI_MONTHS[hm - 1]} ${hy} AH`
 }
