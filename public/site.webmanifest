@@ -1,0 +1,16 @@
+{
+  "name": "Masjid-E-Khazra",
+  "short_name": "Khazra",
+  "description": "One of Scotland's leading mosques on Glasgow's southside",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#065F46",
+  "background_color": "#FAFAF7",
+  "icons": [
+    {
+      "src": "/images/logo-landscape.png",
+      "sizes": "any",
+      "type": "image/png"
+    }
+  ]
+}
