@@ -12,6 +12,8 @@ import Donate from './pages/Donate'
 import Contact from './pages/Contact'
 import FAQ from './pages/FAQ'
 import Resources from './pages/Resources'
+import IslamicDiploma from './pages/IslamicDiploma'
+import NotFound from './pages/NotFound'
 
 export default function App() {
   return (
@@ -30,7 +32,8 @@ export default function App() {
           <Route path="contact" element={<Contact />} />
           <Route path="faq" element={<FAQ />} />
           <Route path="resources" element={<Resources />} />
-
+          <Route path="islamic-diploma" element={<IslamicDiploma />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </BrowserRouter>
