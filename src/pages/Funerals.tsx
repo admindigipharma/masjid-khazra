@@ -98,6 +98,16 @@ export default function Funerals() {
             ))}
           </div>
 
+          <div className="mt-6 rounded-lg border border-primary/20 bg-primary/5 p-4">
+            <p className="flex items-start gap-2 text-sm text-text">
+              <Truck size={16} className="mt-0.5 shrink-0 text-primary" aria-hidden="true" />
+              <span>
+                <strong>National &amp; International Transfer</strong> — For transfers outside Glasgow, please contact{' '}
+                <a href="tel:01414221154" className="font-semibold text-primary hover:underline">0141 422 1154 (Option 2)</a>.
+              </span>
+            </p>
+          </div>
+
           <div className="mt-6 rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
             <h3 className="font-semibold text-text">Also Available</h3>
             <ul className="mt-2 grid gap-1 text-sm text-text-light sm:grid-cols-2">
@@ -220,44 +230,88 @@ export default function Funerals() {
             Our service is free and run entirely by volunteers. The only charges are council fees and the coffin.
           </p>
 
-          <div className="mt-8 overflow-hidden rounded-xl border border-gray-200">
+          <div className="mt-8 grid gap-6 lg:grid-cols-2">
+            {/* Resident Pricing */}
+            <div className="overflow-hidden rounded-xl border border-gray-200">
+              <div className="bg-primary/5 px-5 py-3.5">
+                <h3 className="font-semibold text-text">Glasgow City Council Resident</h3>
+              </div>
+              <table className="w-full text-sm" role="table">
+                <thead className="sr-only">
+                  <tr>
+                    <th scope="col">Item</th>
+                    <th scope="col">Cost</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-t border-gray-100">
+                    <td className="py-3 pl-5 pr-4 text-text">Lair (Plot) — Payment to Glasgow City Council</td>
+                    <td className="py-3 pl-4 pr-5 text-right font-medium text-text">£1,573</td>
+                  </tr>
+                  <tr className="border-t border-gray-100 bg-gray-50/50">
+                    <td className="py-3 pl-5 pr-4 text-text">Interment (Digging) — Payment to Glasgow City Council</td>
+                    <td className="py-3 pl-4 pr-5 text-right font-medium text-text">£1,171</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            {/* Non-Resident Pricing */}
+            <div className="overflow-hidden rounded-xl border border-gray-200">
+              <div className="bg-accent/10 px-5 py-3.5">
+                <h3 className="font-semibold text-text">Non-Resident</h3>
+              </div>
+              <table className="w-full text-sm" role="table">
+                <thead className="sr-only">
+                  <tr>
+                    <th scope="col">Item</th>
+                    <th scope="col">Cost</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-t border-gray-100">
+                    <td className="py-3 pl-5 pr-4 text-text">Lair (Plot) — Payment to Glasgow City Council</td>
+                    <td className="py-3 pl-4 pr-5 text-right font-medium text-text">£3,146</td>
+                  </tr>
+                  <tr className="border-t border-gray-100 bg-gray-50/50">
+                    <td className="py-3 pl-5 pr-4 text-text">Interment (Digging) — Payment to Glasgow City Council</td>
+                    <td className="py-3 pl-4 pr-5 text-right font-medium text-text">£2,342</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          {/* Additional Items */}
+          <div className="mt-6 overflow-hidden rounded-xl border border-gray-200">
+            <div className="bg-gray-50 px-5 py-3.5">
+              <h3 className="font-semibold text-text">Additional Items</h3>
+            </div>
             <table className="w-full text-sm" role="table">
-              <thead>
-                <tr className="bg-primary/5">
-                  <th scope="col" className="py-3.5 pl-5 pr-4 text-left font-semibold text-text">Item</th>
-                  <th scope="col" className="py-3.5 pl-4 pr-5 text-right font-semibold text-text">Cost</th>
+              <thead className="sr-only">
+                <tr>
+                  <th scope="col">Item</th>
+                  <th scope="col">Cost</th>
                 </tr>
               </thead>
               <tbody>
                 <tr className="border-t border-gray-100">
-                  <td className="py-3 pl-5 pr-4 text-text">Lair (burial plot)</td>
-                  <td className="py-3 pl-4 pr-5 text-right font-medium text-text">£1,542</td>
+                  <td className="py-3 pl-5 pr-4 text-text">Wooden Grave Liner</td>
+                  <td className="py-3 pl-4 pr-5 text-right font-medium text-text">£265</td>
                 </tr>
                 <tr className="border-t border-gray-100 bg-gray-50/50">
-                  <td className="py-3 pl-5 pr-4 text-text">Interment</td>
-                  <td className="py-3 pl-4 pr-5 text-right font-medium text-text">£1,148</td>
+                  <td className="py-3 pl-5 pr-4 text-text">Out of Hours Surcharge</td>
+                  <td className="py-3 pl-4 pr-5 text-right font-medium text-text">£125.50</td>
                 </tr>
                 <tr className="border-t border-gray-100">
-                  <td className="py-3 pl-5 pr-4 text-text">Wooden coffin housing</td>
-                  <td className="py-3 pl-4 pr-5 text-right font-medium text-text">£260</td>
-                </tr>
-                <tr className="border-t border-gray-100 bg-gray-50/50">
                   <td className="py-3 pl-5 pr-4 text-text">Coffin</td>
                   <td className="py-3 pl-4 pr-5 text-right font-medium text-text">£295</td>
-                </tr>
-                <tr className="border-t-2 border-primary/20 bg-primary/5">
-                  <td className="py-3 pl-5 pr-4 font-semibold text-text">Total</td>
-                  <td className="py-3 pl-4 pr-5 text-right font-bold text-primary">~£3,245</td>
                 </tr>
               </tbody>
             </table>
           </div>
 
           <div className="mt-4 space-y-2">
-            <p className="flex items-start gap-2 text-sm text-text-light">
-              <AlertCircle size={16} className="mt-0.5 shrink-0 text-accent" aria-hidden="true" />
-              Weekend and bank holiday surcharge: £123 (council charge)
-            </p>
             <p className="flex items-start gap-2 text-sm text-text-light">
               <AlertCircle size={16} className="mt-0.5 shrink-0 text-accent" aria-hidden="true" />
               Council prices typically change every April
