@@ -1,5 +1,4 @@
 import { Outlet } from 'react-router-dom'
-import AnnouncementBanner from './AnnouncementBanner'
 import PrayerTimesBar from './PrayerTimesBar'
 import Header from './Header'
 import Footer from './Footer'
@@ -13,7 +12,6 @@ export default function Layout() {
       >
         Skip to main content
       </a>
-      <AnnouncementBanner />
       <PrayerTimesBar />
       <Header />
       <main className="flex-1 islamic-pattern" id="main-content">
